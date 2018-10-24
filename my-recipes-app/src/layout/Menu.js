@@ -1,6 +1,6 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
-// import { HashRouter, Route, Link, Switch, NavLink } from 'react-router-dom';
+import { HashRouter, Route, Link, Switch, NavLink } from 'react-router-dom';
 
 class Menu extends React.Component {
 	constructor() {
@@ -12,33 +12,33 @@ class Menu extends React.Component {
 			<nav className="app-menu">
 				<ul className="app-menu__list">
 					<li className="app-menu__item">
-						<a href="#" className="app-menu__link">
+						<NavLink to="/" className="app-menu__link">
 							Home
-						</a>
+						</NavLink>
 					</li>
 
 					<li className="app-menu__item">
-						<a href="#" className="app-menu__link">
+						<NavLink to="#" className="app-menu__link">
 							Inspire Yourself
-						</a>
+						</NavLink>
 					</li>
 
 					<li className="app-menu__item">
-						<a href="#" className="app-menu__link">
+						<NavLink to="/search" className="app-menu__link">
 							Search
-						</a>
+						</NavLink>
 					</li>
 
 					<li className="app-menu__item">
-						<a href="#" className="app-menu__link">
+						<NavLink to="/recipe-box/random" className="app-menu__link">
 							Get Random Recipe
-						</a>
+						</NavLink>
 					</li>
 
 					<li className="app-menu__item">
-						<a href="#" className="app-menu__link">
+						<NavLink to="#" className="app-menu__link">
 							Show All Drinks
-						</a>
+						</NavLink>
 					</li>
 				</ul>
 			</nav>

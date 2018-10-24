@@ -1,7 +1,9 @@
 import React from 'react';
-import Header from '../layout/Header';
-import Menu from '../layout/Menu';
+// import Header from '../layout/Header';
+// import Menu from '../layout/Menu';
 import Footer from '../layout/Footer';
+import Drinks from '../database'
+import {db} from '../firebase'
 
 class ResultBox extends React.Component {
 	constructor() {
@@ -10,9 +12,9 @@ class ResultBox extends React.Component {
 
 	render() {
 		return (
-			<div class="result-box">
+			<div className="result-box">
 				<a href="">
-					<div class="result-info">Negroni</div>
+					<div className="result-info"></div>
 				</a>
 			</div>
 		);
@@ -26,7 +28,7 @@ class SearchResults extends React.Component {
 
 	render() {
 		return (
-			<div class="app-search__results">
+			<div className="app-search__results">
 				<ResultBox />
 			</div>
 		);
@@ -40,13 +42,22 @@ class SearchMainContent extends React.Component {
 
 	render() {
 		return (
-			<section class="app-search__content">
+			<section className="app-search__content">
 				<h2>Find Your Drink</h2>
-				<input type="search" name="" id="" class="app-search__input" placeholder="Start typing..." />
+				<input type="search" name="" id="" className="app-search__input" placeholder="Start typing..." />
                 <SearchResults />
 			</section>
 		);
-	}
+    }
+
+    componentDidMount() {
+        db.collection("cocktails").get().then((resp) => {
+            console.log(resp.docs);
+            resp.docs.forEach((e) => {
+                console.log(e.data());
+             })
+        })
+    }
 }
 
 class SearchPage extends React.Component {
@@ -57,9 +68,7 @@ class SearchPage extends React.Component {
 	render() {
 		return (
 			<div className="bg-wrapper-search">
-				<Header />
-				<main class="app-search">
-					<Menu />
+				<main className="app-search">
                     <SearchMainContent />
 				</main>
                 <Footer />

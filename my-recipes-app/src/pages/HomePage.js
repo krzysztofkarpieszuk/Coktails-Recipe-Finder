@@ -29,10 +29,8 @@ class HomePage extends React.Component {
 
 	render() {
 		return (
-            <div class="bg-wrapper-home">
-                <Header />
-			<main class="app-home">
-				<Menu />
+            <div className="bg-wrapper-home">
+			<main className="app-home">
                 <HomeMainSection />
 			</main>
                 <Footer />
