@@ -1,0 +1,29 @@
+@import "modules/breakpoints";
+@import "modules/base";
+@import "modules/colors";
+@import "modules/flexbox";
+
+
+
+@import "partials/home-main";
+@import "partials/menu";
+@import "partials/header";
+@import "partials/footer";
+@import "partials/recipe-main";
+@import "partials/search-main";
+
+
+//  Back to previous view
+.back {
+    margin-top: 3rem;
+
+    // icon
+    i {
+      font-size: 5rem;
+      color: $color-description;
+
+      &:hover {
+        color: lighten($color-description, 20%);
+      }
+    }
+  }

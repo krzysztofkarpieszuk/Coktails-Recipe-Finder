@@ -1,0 +1,184 @@
+// RECIPE PAGE
+
+// Wrapper for image
+.bg-wrapper-recipe {
+  background-image: linear-gradient($color-bg-linear-default, $color-bg-linear-default), url("../images/adult-alcohol-alcohol-bottles-681846.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  min-height: 100vh;
+  // position: relative;
+
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+}
+
+// Main Section Recipe Box
+.app-recipe {
+  position: relative;
+  margin-left: 26rem;
+  padding-top: 10rem;
+
+  @include flexbox {
+    justify-content: space-between;
+  }
+
+  &__content {
+    padding: 2.5rem;
+    text-align: center;
+
+    // Drink name
+    h2 {
+      font-size: 6rem;
+      color: $color-title;
+      margin: 1rem 0 1.5rem;
+      text-transform: uppercase;
+
+      // drink name  Media queries tablet
+      @include tablet {
+        font-size: 4.5rem;
+        width: 100%;
+      }
+
+      // drink name Media queries mobile
+      @include mobile {
+        font-size: 3.5rem;
+        margin-top: 0;
+      }
+    }
+
+    // Drink description
+    p {
+      font-size: 2rem;
+      line-height: 1.6;
+      letter-spacing: 0.2rem;
+      width: 70%;
+      color: #ccc;
+      margin: 0 auto 2rem;
+      text-align: center;
+
+      // description  Media queries tablet
+      @include tablet {
+        width: 80%;
+      }
+
+      // description media queries mobile
+      @include mobile {
+        font-size: 1.7rem;
+        width: 90%;
+      }
+    }
+
+    // Main Recipe Box Media queries tablet
+    @include tablet {
+      flex-basis: 100%;
+    }
+
+    // Main Recipe Box Media queries mobile
+    @include mobile {
+      padding-left: 1rem;
+    }
+  }
+
+
+  // Drink image
+  img {
+    margin: 2rem;
+    width: 40%;
+    height: auto;
+    box-shadow: 9px 7px 13px 0px rgba(0, 0, 0, 0.74);
+
+    // Drink image media queries tablet
+    @include tablet {
+      width: 50%;
+    }
+
+    // Drink image media queries mobile
+    @include mobile {
+      width: 80%;
+    }
+  }
+
+
+  // Main section recipe media queries tablet
+  @include tablet {
+    width: 100%;
+    margin-left: 0;
+    padding-top: 6rem;
+  }
+
+}
+
+//  Box with drink info -- display flex
+.drink-info {
+  @include flexbox {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+// Box below drink description
+.app-recipe__drink {
+  @include flexbox {
+    justify-content: space-between;
+  }
+
+  margin: 3rem;
+
+  // Title steps or ingredients
+  h3 {
+    color: $color-title;
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase
+  }
+
+  // List item ingredients and steps
+  li {
+    padding: 1rem;
+    color: $color-description;
+    font-size: 2rem;
+    text-align: left;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+  }
+
+//  media queries tablet
+  @include tablet {
+    flex-direction: column;
+    //   align-items: flex-start;
+    li {
+      padding-left: 1rem;
+      font-size: 1.8rem;
+    }
+  }
+
+  @include mobile {
+    li {
+      font-size: 1.7rem;
+    }
+  }
+}
+
+// Ingredients box
+.app-recipe__ingredients {
+  flex-basis: 45%;
+
+  // Media queries tablet for ingredients
+  @include tablet {
+    margin-bottom: 4rem;
+  }
+}
+
+// Box with steps
+.app-recipe_prescription {
+  flex-basis: 45%;
+}

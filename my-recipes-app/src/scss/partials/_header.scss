@@ -1,0 +1,68 @@
+// HEADER
+
+// Flex for container in header
+header {
+  .container {
+    @include flexbox {
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+
+.app-header {
+  background-color: $color-bg-primary;
+  position: absolute;
+  z-index: 999999;
+  width: 100%;
+
+  // Title
+  h1 {
+    font-size: 4.5rem;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    text-transform: uppercase;
+    padding: 1rem 0;
+
+    // Media queries tablet
+    @include tablet {
+      font-size: 3.5rem;
+    }
+
+    // Media queries medium devics
+    @include medium {
+      font-size: 3rem;
+    }
+
+    // Media queries mobile
+    @include mobile {
+      font-size: 2.5rem;
+      padding-right: 1.5rem;
+    }
+
+    // Media queries small devices
+    @include small {
+      font-size: 2.1rem;
+    }
+  }
+}
+
+
+// Button menu trigger for mobile menu
+.navTrigger {
+  padding: 1rem 2rem;
+  margin-top: 0.2rem;
+  color: white;
+  background: transparent;
+  font-size: 2.5rem;
+  border: none;
+  outline: none;
+  display: none;
+
+  // Media queries tablet ----> showing on tablet and mobile devices
+  @include tablet {
+    display: block;
+  }
+}

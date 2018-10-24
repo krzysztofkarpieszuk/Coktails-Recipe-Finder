@@ -1,0 +1,90 @@
+// Home Page
+
+
+// Wrapper for background image on
+.bg-wrapper-home {
+  background-image: linear-gradient($color-bg-linear-default, $color-bg-linear-default), url("../images/alcoholic-beverages-bar-beverage-613037.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+
+
+// Section Main
+.app-home {
+  min-height: 100vh;
+  position: relative;
+  margin-left: 26rem;
+  margin-top: 15rem;
+
+
+  // Media queries for tablet
+  @include tablet {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  // Content
+  &__content {
+    flex-basis: 80%;
+    padding: 3rem;
+    text-align: center;
+
+    // Title
+    h2 {
+      font-size: 6rem;
+      color: $color-title;
+      margin: 5rem 0 3rem;
+
+      // H2 media queries tablet
+      @include tablet {
+        font-size: 4.5rem;
+        width: 100%;
+      }
+
+      // H2 media queries mobile
+      @include mobile {
+        font-size: 3.5rem;
+        margin-top: 0;
+      }
+    }
+
+    // Description
+    p {
+      font-size: 2.5rem;
+      line-height: 1.5;
+      letter-spacing: 0.2rem;
+      width: 50%;
+      color: #ccc;
+      margin: 0 auto;
+      text-align: center;
+
+      //  Media queries tablet for description
+      @include tablet {
+        font-size: 2.5rem;
+        width: 80%;
+      }
+
+      // Media queries mobile for description
+      @include mobile {
+        font-size: 2rem;
+        width: 100%;
+      }
+    }
+
+    // Media queries tablet for Content
+    @include tablet {
+      flex-basis: 100%;
+    }
+  }
+}
