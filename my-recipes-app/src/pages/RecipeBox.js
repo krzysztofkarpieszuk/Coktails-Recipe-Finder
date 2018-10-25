@@ -2,7 +2,6 @@ import React from 'react';
 import Footer from '../layout/Footer';
 import { db } from '../firebase';
 
-
 // Component rendering box for recipe
 class RecipeContent extends React.Component {
 	constructor(props) {
@@ -18,10 +17,9 @@ class RecipeContent extends React.Component {
 	render() {
 		const { data, address, randomIndex } = this.state;
 
-		//
+		// If data is not received yet show loader
 		if (data === null) {
 			return (
-				// If data is not received yet show loader
 				<section className="app-recipe__content">
 					<div className="loader">
 						Loading
@@ -29,16 +27,30 @@ class RecipeContent extends React.Component {
 					</div>
 				</section>
 			);
-		} else { // action when data is already received
-			if (address == 'random') { // if address is /recipe-box/random ---> after clicking on get random recipe in menu
-				return (
-					<section className="app-recipe__content">
-						<DrinkInfo data={data} randomIndex={randomIndex} />
-						<DrinkRecipe data={data} randomIndex={randomIndex} />
-					</section>
-				);
-			}
 		}
+
+		// If address is /recipe-box/random ---> after clicking on get random recipe in menu
+		if (address == 'random') {
+			return (
+				<section className="app-recipe__content">
+					<DrinkInfo data={data} randomIndex={randomIndex} />
+					<DrinkRecipe data={data} randomIndex={randomIndex} />
+				</section>
+			);
+		}
+
+		// If address == drink, name set return new array with element with one specified drink with name in address
+		const element = data.filter((e) => {
+			return e.name == address;
+		});
+
+		// render recipe box with info and prescription for drink with name in address
+		return (
+			<section className="app-recipe__content">
+				<DrinkInfo data={element} />
+				<DrinkRecipe data={element} />
+			</section>
+		);
 	}
 
 	// Getting data from firebase
@@ -63,17 +75,14 @@ class DrinkInfo extends React.Component {
 
 		this.state = {
 			data: this.props.data, // data received with props
-			randomIndex: this.props.randomIndex // random index received with props
+			randomIndex: this.props.randomIndex || 0 // random index received with props, if props is not received set randomIndex as 0
 		};
 	}
 
 	render() {
-		const {
-		    data,
-		    randomIndex
-		} = this.state
-
+		const { data, randomIndex } = this.state;
 		const drink = data[randomIndex];
+
 		return (
 			<div className="drink-info">
 				<h2 className="app-recipe__title">{drink.name}</h2>
@@ -91,15 +100,12 @@ class DrinkRecipe extends React.Component {
 
 		this.state = {
 			data: this.props.data, // data received with props
-			randomIndex: this.props.randomIndex // random index received with props
+			randomIndex: this.props.randomIndex || 0 // random index received with props
 		};
 	}
 
 	render() {
-		const {
-		    data,
-		    randomIndex
-		} = this.state;
+		const { data, randomIndex } = this.state;
 
 		const drink = data[randomIndex];
 
@@ -109,11 +115,10 @@ class DrinkRecipe extends React.Component {
 		});
 
 		// map on array with steps to prepare drink ---> returns list item with one step
-		let step =drink.steps.map((e, i) => {
+		let step = drink.steps.map((e, i) => {
 			return <li key={`step${i}`}>{e}</li>;
 		});
 
-	
 		return (
 			<div className="app-recipe__drink">
 				<article className="app-recipe__ingredients">
@@ -137,7 +142,7 @@ class RecipePage extends React.Component {
 	}
 
 	render() {
-		const address = this.props.match.params.drink;
+		const address = this.props.match.params.drink; // :drink variable
 		return (
 			<div className="bg-wrapper-recipe">
 				<main className="app-recipe">
