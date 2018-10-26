@@ -1,8 +1,5 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-// import { HashRouter, Route, Link, Switch, NavLink } from 'react-router-dom';
-import Header from '../layout/Header';
-import Menu from '../layout/Menu';
+import { HashRouter, Route, Link, Switch, NavLink } from 'react-router-dom';
 import Footer from '../layout/Footer';
 
 class HomeMainSection extends React.Component {

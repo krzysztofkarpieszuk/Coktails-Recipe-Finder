@@ -13,18 +13,17 @@
 @import "partials/search-main";
 @import "partials/loader";
 
+// //  Back to previous view
+// .back {
+//     margin-top: 3rem;
 
-//  Back to previous view
-.back {
-    margin-top: 3rem;
+//     // icon
+//     i {
+//       font-size: 5rem;
+//       color: $color-description;
 
-    // icon
-    i {
-      font-size: 5rem;
-      color: $color-description;
-
-      &:hover {
-        color: lighten($color-description, 20%);
-      }
-    }
-  }
+//       &:hover {
+//         color: lighten($color-description, 20%);
+//       }
+//     }
+//   }

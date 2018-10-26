@@ -9,11 +9,6 @@
   background-color: $color-bg-primary;
   height: 100vh;
   z-index: 9999;
-  
-  @include flexbox {
-    flex-direction: column;
-    justify-content: center;
-  }
 
   // Menu list ul
   &__list {
@@ -48,7 +43,7 @@
 
   // Media queries tablet for navigation
   @include tablet {
-    display: none
+    visibility: hidden
   }
 
 }
@@ -57,12 +52,23 @@
 
 // Active Menu class -----> toggle on navTrigger click
 .active-menu {
-  display: block;
+  visibility: visible;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 2;
-  width: 100%;
+  width: 80%;
   background: rgba(0, 0, 0, 0.9);
-  height: 100vh;
+  height: 100%;
+
+  @include mobile {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    height: 100%;
+  }
 }

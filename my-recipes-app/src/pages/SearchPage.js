@@ -14,7 +14,7 @@ const SearchResults = (props) => {
 		const address = `/recipe-box/${e.name}`
 		return (
 			<div className="result-box" style={{ backgroundImage: url }}>
-				<Link to={address}>
+				<Link to={address} className="result-link">
 					<div className="result-info">{e.name}</div>
 				</Link>
 			</div>
