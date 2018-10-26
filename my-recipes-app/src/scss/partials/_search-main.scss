@@ -2,7 +2,7 @@
 
 // wrapper for background image
 .bg-wrapper-search {
-  background-image: linear-gradient($color-bg-linear-default, $color-bg-linear-default), url("../images/alcohol-1342824.jpg");
+  background-image: linear-gradient($color-bg-linear-default, $color-bg-linear-default), url("../images/search-bg-tiny.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -118,7 +118,6 @@
       background-position: center center;
       height: 25rem;
       min-width: 25rem;
-      width: 25%;
       margin-right: 2rem;
       box-shadow: 0px 4px 17px 19px rgba(0, 0, 0, 0.6);
 

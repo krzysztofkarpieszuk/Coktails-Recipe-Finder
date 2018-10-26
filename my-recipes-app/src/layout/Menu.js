@@ -36,7 +36,7 @@ class Menu extends React.Component {
 					</li>
 
 					<li className="app-menu__item">
-						<NavLink to="#" className="app-menu__link">
+						<NavLink to="/show-all" className="app-menu__link">
 							Show All Drinks
 						</NavLink>
 					</li>

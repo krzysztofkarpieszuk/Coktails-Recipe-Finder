@@ -1,0 +1,15 @@
+.bg-wrapper-showAll {
+    background-image: linear-gradient($color-bg-linear-default, $color-bg-linear-default), url("../images/home-page-bg-tiny.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+  }
