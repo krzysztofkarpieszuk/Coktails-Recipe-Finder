@@ -106,8 +106,8 @@ class DrinkRecipe extends React.Component {
 	}
 
 	render() {
-		const { data, randomIndex } = this.state;
-
+		const { data } = this.state;
+		const randomIndex = this.props.randomIndex || 0 ;
 		const drink = data[randomIndex];
 
 		// map on array with ingredients ---> returns list item with ingredient
