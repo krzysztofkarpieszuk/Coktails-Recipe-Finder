@@ -1,14 +1,14 @@
 {
-  "main.css": "./static/css/main.ad1646fd.chunk.css",
-  "main.js": "./static/js/main.41e521fd.chunk.js",
-  "main.js.map": "./static/js/main.41e521fd.chunk.js.map",
-  "static/js/1.4262b588.chunk.js": "./static/js/1.4262b588.chunk.js",
-  "static/js/1.4262b588.chunk.js.map": "./static/js/1.4262b588.chunk.js.map",
+  "main.css": "./static/css/main.33f588c1.chunk.css",
+  "main.js": "./static/js/main.1de9722c.chunk.js",
+  "main.js.map": "./static/js/main.1de9722c.chunk.js.map",
+  "static/js/1.e6ba1e08.chunk.js": "./static/js/1.e6ba1e08.chunk.js",
+  "static/js/1.e6ba1e08.chunk.js.map": "./static/js/1.e6ba1e08.chunk.js.map",
   "runtime~main.js": "./static/js/runtime~main.4a686d48.js",
   "runtime~main.js.map": "./static/js/runtime~main.4a686d48.js.map",
-  "static/css/main.ad1646fd.chunk.css.map": "./static/css/main.ad1646fd.chunk.css.map",
-  "static/media/style.scss": "./static/media/search-bg-tiny.8f4d56b9.jpg",
+  "static/css/main.33f588c1.chunk.css.map": "./static/css/main.33f588c1.chunk.css.map",
+  "static/media/style.scss": "./static/media/recipe-box-bg-tiny.dfe065c1.jpg",
   "index.html": "./index.html",
-  "precache-manifest.f4a92e2cb201a7f8a824daf6093093fd.js": "./precache-manifest.f4a92e2cb201a7f8a824daf6093093fd.js",
+  "precache-manifest.3d46a37729497b473c1b7ddb3b50e870.js": "./precache-manifest.3d46a37729497b473c1b7ddb3b50e870.js",
   "service-worker.js": "./service-worker.js"
 }
