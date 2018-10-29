@@ -1,28 +1,24 @@
 import React from 'react';
 import { db } from '../firebase';
-import { HashRouter, Route, Link, Switch, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-class Gallery extends React.Component {
-	constructor(props) {
-		super(props);
-	}
 
-	render() {
-		let drink = this.props.data.map((e, i) => {
-			const url = `url(${e.imgURL})`;
-			const address = `/recipe-box/${e.name}`;
-			return (
-				<div className="result-box" style={{ backgroundImage: url }} ref={(element) => (this.box = element)}>
-					<Link to={address} className="result-link">
-						<div className="result-info">{e.name}</div>
-					</Link>
-				</div>
-			);
-		});
+const Gallery = (props) => {
+	let drink = props.data.map((e, i) => {
+		const url = `url(${e.imgURL})`;
+		const address = `/recipe-box/${e.name}`;
+		return (
+			<div className="result-box" key={`result${i}`} style={{ backgroundImage: url }}>
+				<Link to={address} className="result-link">
+					<div className="result-info">{e.name}</div>
+				</Link>
+			</div>
+		);
+	});
 
-		return <div className="app-search__results">{drink}</div>;
-	}
+	return <div className="app-search__results">{drink}</div>;
 }
+
 
 class ShowAllPage extends React.Component {
 	constructor() {

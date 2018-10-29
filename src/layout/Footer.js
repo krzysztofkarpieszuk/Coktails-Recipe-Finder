@@ -1,29 +1,15 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-// import {
-// HashRouter,
-// Route,
-// Link,
-// Switch,
-// NavLink,
-// } from 'react-router-dom';
 
-
-class Footer extends React.Component {
-   constructor() {
-       super()
-   }
-
-   render() {
+const Footer = () => {
     return (
         <footer className="app-footer">
         <div className="app-footer__container container">
             <p className="app-footer__copy">Copyright &copy; 2018 Krzysztof Karpieszuk </p>
-            <a target="_blank" href="https://github.com/krzysztofkarpieszuk/Drinkello" className="app-footer__github-app-link" ><i className="fab fa-github"></i></a>
+            <a target="_blank" rel="noreferrer noopener" href="https://github.com/krzysztofkarpieszuk/Drinkello" className="app-footer__github-app-link" ><i className="fab fa-github"></i></a>
         </div>
         </footer>
     )
-   }
 }
+
 
 export default Footer;

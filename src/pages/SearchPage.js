@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Route, Link, Switch, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { db } from '../firebase';
 
 
@@ -85,14 +85,13 @@ class SearchMainContent extends React.Component {
 						value={searchValue}
 					/>
 
-					{searchValue != "" && <SearchResults data={foundItems}/>}
+					{searchValue !== "" && <SearchResults data={foundItems}/>}
 				</section>
 			);
 		}
 	}
 
 	componentDidMount() {
-
 		// Getting data from database
 		db.collection('cocktails').get().then((response) => {
 			let received = [];
@@ -108,20 +107,15 @@ class SearchMainContent extends React.Component {
 }
 
 // Component rendering Search Page with finder
-class SearchPage extends React.Component {
-	constructor() {
-		super();
-	}
-
-	render() {
-		return (
-			<div className="bg-wrapper-search">
-				<main className="app-search">
-					<SearchMainContent />
-				</main>
-			</div>
-		);
-	}
+const SearchPage = () => {
+	return (
+		<div className="bg-wrapper-search">
+			<main className="app-search">
+				<SearchMainContent />
+			</main>
+		</div>
+	);
 }
+
 
 export default SearchPage;

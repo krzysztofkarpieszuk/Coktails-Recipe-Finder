@@ -1,52 +1,38 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-import { HashRouter, Route, Link, Switch, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-class Menu extends React.Component {
-	constructor(props) {
-		super(props);
+const Menu = (props) => {
+	const classElement = props.menuOpen ? 'active-menu' : '';
 
-	}
+	return (
+		<nav className={`app-menu ${classElement}`}>
+			<ul className="app-menu__list">
+				<li className="app-menu__item">
+					<Link to="/" className="app-menu__link">
+						Home
+					</Link>
+				</li>
 
-	// handleSelect = e => {
-	// 	this.menu.classList.toggle("active-menu")
-	// }
+				<li className="app-menu__item">
+					<Link to="/search" className="app-menu__link">
+						Search
+					</Link>
+				</li>
 
-	render() {
+				<li className="app-menu__item">
+					<Link to="/recipe-box/random" className="app-menu__link">
+						Get Random Recipe
+					</Link>
+				</li>
 
-		const classElement = this.props.menuOpen ? "active-menu" : "";
-
-		console.log(this.props.menuOpen)
-		return (
-			<nav className={`app-menu ${classElement}`} ref={element => this.menu = element}>
-				<ul className="app-menu__list">
-					<li className="app-menu__item">
-						<NavLink to="/" className="app-menu__link" handleClick={this.handleSelect}>
-							Home
-						</NavLink>
-					</li>
-
-					<li className="app-menu__item">
-						<NavLink to="/search" className="app-menu__link" handleClick={this.handleSelect}>
-							Search
-						</NavLink>
-					</li>
-
-					<li className="app-menu__item">
-						<NavLink to="/recipe-box/random" className="app-menu__link" handleClick={this.handleSelect}>
-							Get Random Recipe
-						</NavLink>
-					</li>
-
-					<li className="app-menu__item">
-						<NavLink to="/show-all" className="app-menu__link" handleClick={this.handleSelect}>
-							Show All Drinks
-						</NavLink>
-					</li>
-				</ul>
-			</nav>
-		);
-	}
-}
+				<li className="app-menu__item">
+					<Link to="/show-all" className="app-menu__link">
+						Show All Drinks
+					</Link>
+				</li>
+			</ul>
+		</nav>
+	);
+};
 
 export default Menu;
