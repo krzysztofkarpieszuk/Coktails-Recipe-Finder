@@ -1,7 +1,6 @@
 import React from 'react';
 import { db } from '../firebase';
 import { HashRouter, Route, Link, Switch, NavLink } from 'react-router-dom';
-import Footer from '../layout/Footer';
 
 class Gallery extends React.Component {
 	constructor(props) {
@@ -54,7 +53,6 @@ class ShowAllPage extends React.Component {
 				<main className="app-home">
 					<Gallery data={this.state.data} />
 				</main>
-				<Footer />
 			</div>
 		);
 	}

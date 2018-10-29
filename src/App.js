@@ -7,6 +7,7 @@ import ShowAllPage from './pages/ShowAllPage';
 
 import Header from './layout/Header';
 import Menu from './layout/Menu';
+import Footer from './layout/Footer';
 import './scss/style.scss';
 
 class App extends Component {
@@ -41,7 +42,7 @@ class App extends Component {
 				<div>
 					<Header toggleMobileMenu={this.toggleMobileMenu} />
 					<Menu menuOpen={this.state.menuOpen} />
-					<Switch>
+					{/* <Switch> */}
 						<Route exact path="/" component={HomePage} />
 						{/* <Route path="/recipe-box/:drink" component={ (props) => <RecipePage
                                                                       hideMenu={this.hideMenu}
@@ -53,7 +54,8 @@ class App extends Component {
 						 <Route path="/recipe-box/:drink" component={RecipePage} />
 						<Route path="/search" component={SearchPage} />
 						<Route path="/show-all" component={ShowAllPage} />
-					</Switch>
+					{/* </Switch> */}
+					<Footer />
 				</div>
 			</HashRouter>
 		);

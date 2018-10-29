@@ -1,7 +1,5 @@
 import React from 'react';
 import { HashRouter, Route, Link, Switch, NavLink } from 'react-router-dom';
-import Footer from '../layout/Footer';
-import Drinks from '../database';
 import { db } from '../firebase';
 
 
@@ -76,7 +74,7 @@ class SearchMainContent extends React.Component {
 			// Renders search box if data is already received
 			return (
 				<section className="app-search__content">
-					<h2>Find Your Drink</h2>
+					<h2 className="app-search__title">Find Your Drink</h2>
 					<input
 						type="search"
 						name=""
@@ -121,7 +119,6 @@ class SearchPage extends React.Component {
 				<main className="app-search">
 					<SearchMainContent />
 				</main>
-				<Footer />
 			</div>
 		);
 	}

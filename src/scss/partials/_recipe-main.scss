@@ -9,21 +9,20 @@
   background-attachment: fixed;
   width: 100%;
   min-height: 100vh;
-  // position: relative;
 
   @include tablet {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    @include flexbox {
+      flex-direction: column;
+      justify-content: space-between;
+    }
   }
-
 }
 
 // Main Section Recipe Box
 .app-recipe {
   position: relative;
   margin-left: 26rem;
-  padding-top: 10rem;
+  padding: 10rem 0 10rem;
 
   @include flexbox {
     justify-content: space-between;
@@ -33,48 +32,6 @@
     padding: 2.5rem;
     text-align: center;
     min-height: 100vh;
-
-    // Drink name
-    h2 {
-      font-size: 6rem;
-      color: $color-title;
-      margin: 1rem 0 1.5rem;
-      text-transform: uppercase;
-
-      // drink name  Media queries tablet
-      @include tablet {
-        font-size: 4.5rem;
-        width: 100%;
-      }
-
-      // drink name Media queries mobile
-      @include mobile {
-        font-size: 3.5rem;
-        margin-top: 0;
-      }
-    }
-
-    // Drink description
-    p {
-      font-size: 2rem;
-      line-height: 1.6;
-      letter-spacing: 0.2rem;
-      width: 70%;
-      color: #ccc;
-      margin: 0 auto 2rem;
-      text-align: center;
-
-      // description  Media queries tablet
-      @include tablet {
-        width: 80%;
-      }
-
-      // description media queries mobile
-      @include mobile {
-        font-size: 1.7rem;
-        width: 90%;
-      }
-    }
 
     // Main Recipe Box Media queries tablet
     @include tablet {
@@ -87,9 +44,57 @@
     }
   }
 
+  &__info {
+    @include flexbox {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__title {
+    font-size: 6rem;
+    color: $color-title;
+    margin: 1rem 0 1.5rem;
+    text-transform: uppercase;
+
+    // drink name  Media queries tablet
+    @include tablet {
+      font-size: 4.5rem;
+      width: 100%;
+    }
+
+    // drink name Media queries mobile
+    @include mobile {
+      font-size: 3.5rem;
+      margin-top: 0;
+    }
+  }
+
+  &__description {
+    font-size: 2rem;
+    line-height: 1.6;
+    letter-spacing: 0.2rem;
+    width: 70%;
+    color: #ccc;
+    margin: 0 auto 2rem;
+    text-align: center;
+
+    // description  Media queries tablet
+    @include tablet {
+      width: 80%;
+    }
+
+    // description media queries mobile
+    @include mobile {
+      font-size: 1.7rem;
+      width: 90%;
+    }
+  }
+
 
   // Drink image
-  img {
+  &__image {
     margin: 2rem;
     width: 40%;
     height: auto;
@@ -114,72 +119,70 @@
     padding-top: 6rem;
   }
 
-}
+  // Box below drink description
+  &__drink {
+    @include flexbox {
+      justify-content: space-between;
+    }
 
-//  Box with drink info -- display flex
-.drink-info {
-  @include flexbox {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-}
+    margin: 3rem;
 
+    // Title steps or ingredients
+    h3 {
+      color: $color-title;
+      font-size: 2.8rem;
+      margin-bottom: 2rem;
+      text-transform: uppercase
+    }
 
-// Box below drink description
-.app-recipe__drink {
-  @include flexbox {
-    justify-content: space-between;
-  }
-
-  margin: 3rem;
-
-  // Title steps or ingredients
-  h3 {
-    color: $color-title;
-    font-size: 2.8rem;
-    margin-bottom: 2rem;
-    text-transform: uppercase
-  }
-
-  // List item ingredients and steps
-  li {
-    padding: 1rem;
-    color: $color-description;
-    font-size: 2rem;
-    text-align: left;
-    font-weight: 700;
-    letter-spacing: 0.1rem;
-  }
-
-//  media queries tablet
-  @include tablet {
-    flex-direction: column;
-    //   align-items: flex-start;
+    // List item ingredients and steps
     li {
-      padding-left: 1rem;
-      font-size: 1.8rem;
+      padding: 1rem;
+      color: $color-description;
+      font-size: 2rem;
+      text-align: left;
+      font-weight: 700;
+      letter-spacing: 0.1rem;
+    }
+
+    //  media queries tablet
+    @include tablet {
+      flex-direction: column;
+      margin-bottom: 5rem;
+
+      li {
+        padding-left: 1rem;
+        font-size: 1.8rem;
+      }
+    }
+
+    @include mobile {
+      li {
+        font-size: 1.7rem;
+      }
     }
   }
 
-  @include mobile {
-    li {
-      font-size: 1.7rem;
+  // Ingredients box
+  &__ingredients {
+    flex-basis: 45%;
+    margin-right: 3rem;
+
+    // Media queries tablet for ingredients
+    @include tablet {
+      margin-bottom: 4rem;
     }
   }
-}
 
-// Ingredients box
-.app-recipe__ingredients {
-  flex-basis: 45%;
+  // Box with steps
+  &__prescription {
+    flex-basis: 45%;
 
-  // Media queries tablet for ingredients
-  @include tablet {
-    margin-bottom: 4rem;
+    @include tablet {
+      padding-bottom: 5rem;
+    }
   }
-}
 
-// Box with steps
-.app-recipe_prescription {
-  flex-basis: 45%;
+
+
 }

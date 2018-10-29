@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 class Header extends React.Component {
    constructor() {
@@ -30,7 +31,7 @@ class Header extends React.Component {
 					<div className="line-menu half end" />
 				</div>
 			</div>
-				<h1>Cocktails Finder</h1>
+				<Link to="/" className="app-header__logo">Drinkello</Link>
 			</div>
 		</header>
 	)

@@ -2,26 +2,23 @@
 
 // Menu Nav
 .app-menu {
-  width: 250px;
+  width: 25rem;
   margin: 0;
   padding: 0;
   position: fixed;
-  background-color: $color-bg-primary;
+  background-color: #000;
   height: 100vh;
   z-index: 9999;
 
-  // Menu list ul
   &__list {
     list-style-type: none;
     margin: 0;
     padding: 8rem 1.5rem;
     margin-bottom: 3rem;
+  }
 
-
-
-    // Menu Link
-    a {
-      text-decoration: none;
+  &__link {
+    text-decoration: none;
       display: block;
       font-size: 1.8rem;
       border: 2px solid #fff;
@@ -30,45 +27,35 @@
       font-weight: 700;
       color: #fff;
       padding: 1rem 2rem;
-      letter-spacing: 0.1rem;
+      letter-spacing: 0.2rem;
       text-transform: uppercase;
 
-      // Hover on menu link
       &:hover {
         background: $color-bg-hover;
       }
-    }
-
   }
 
   // Media queries tablet for navigation
   @include tablet {
-    visibility: hidden
+    background: rgba(0, 0, 0, 0.9);
+    visibility: hidden;
+    opacity: 0;
+    width: 100%;
+    transition: visibility 0.5s linear, opacity 0.5s linear;
   }
 
 }
-
 
 
 // Active Menu class -----> toggle on navTrigger click
 .active-menu {
   visibility: visible;
-  position: absolute;
+  position: fixed;
+  opacity: 1;
   top: 0;
   left: 0;
-  z-index: 2;
-  width: 80%;
-  background: rgba(0, 0, 0, 0.9);
+  z-index: 99;
+  width: 100%;
   height: 100%;
-
-  @include mobile {
-    visibility: visible;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    height: 100%;
-  }
 }
+

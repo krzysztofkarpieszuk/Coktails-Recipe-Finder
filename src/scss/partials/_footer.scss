@@ -2,13 +2,12 @@
 
 
 .app-footer {
-  position: relative;
-  background: $color-bg-primary;
+  position: absolute;
+  background: #000;
   width: 100%;
   bottom: 0;
   left: 0;
-  right: 0;
-  z-index: 999999999;
+  z-index: 999999;
   padding: 1rem 0;
 
   &__container {
@@ -63,10 +62,4 @@
     font-size: 2.5rem;
   }
 
-  // Media queries tablet for Footer
-  @include tablet {
-    position: relative;
-    bottom: 0;
-    left: 0;
-  }
 }

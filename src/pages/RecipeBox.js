@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../layout/Footer';
 import { db } from '../firebase';
 
 // Component rendering box for recipe
@@ -14,7 +13,7 @@ class RecipeContent extends React.Component {
 	}
 
 	render() {
-		const randomIndex= Math.floor(Math.random() * (13 - 0 + 1) + 0) // Setting random number as index to find random recipe
+		const randomIndex= Math.floor(Math.random() * (12 - 0 + 1) + 0) // Setting random number as index to find random recipe
 		const { data, address } = this.state;
 
 		// If data is not received yet show loader
@@ -75,20 +74,19 @@ class DrinkInfo extends React.Component {
 
 		this.state = {
 			data: this.props.data, // data received with props
-		//	randomIndex: this.props.randomIndex || 0 // random index received with props, if props is not received set randomIndex as 0
 		};
 	}
 
 	render() {
 		const { data } = this.state;
-		const randomIndex = this.props.randomIndex || 0 ;
+		const randomIndex = this.props.randomIndex || 0 ; // randomIndex received with props or 0 if props was not defined
 		const drink = data[randomIndex];
 
 		return (
-			<div className="drink-info">
+			<div className="app-recipe__info">
 				<h2 className="app-recipe__title">{drink.name}</h2>
 				<p className="app-recipe__description">{drink.description}</p>
-				<img src={drink.imgURL} alt="" />
+				<img className="app-recipe__image" src={drink.imgURL} alt="" />
 			</div>
 		);
 	}
@@ -101,13 +99,12 @@ class DrinkRecipe extends React.Component {
 
 		this.state = {
 			data: this.props.data, // data received with props
-			randomIndex: this.props.randomIndex || 0 // random index received with props
 		};
 	}
 
 	render() {
 		const { data } = this.state;
-		const randomIndex = this.props.randomIndex || 0 ;
+		const randomIndex = this.props.randomIndex || 0 ; // randomIndex received with props or 0 if props was not defined
 		const drink = data[randomIndex];
 
 		// map on array with ingredients ---> returns list item with ingredient
@@ -127,7 +124,7 @@ class DrinkRecipe extends React.Component {
 					<ul>{ingredient}</ul>
 				</article>
 
-				<article className="app-recipe_prescription">
+				<article className="app-recipe__prescription">
 					<h3>Steps</h3>
 					<ol>{step}</ol>
 				</article>
@@ -155,7 +152,6 @@ class RecipePage extends React.Component {
 				<main className="app-recipe">
 					<RecipeContent address={address} />
 				</main>
-				<Footer />
 			</div>
 		);
 	}

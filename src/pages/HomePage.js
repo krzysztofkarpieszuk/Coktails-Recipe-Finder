@@ -1,6 +1,5 @@
 import React from 'react';
 import { HashRouter, Route, Link, Switch, NavLink } from 'react-router-dom';
-import Footer from '../layout/Footer';
 
 class HomeMainSection extends React.Component {
 	constructor() {
@@ -10,9 +9,9 @@ class HomeMainSection extends React.Component {
 	render() {
 		return (
 			<section className="app-home__content">
-				<h2 className="app-home__title">Welcome to Cocktails Recipes Finder </h2>
+				<h2 className="app-home__title">Welcome to Drinkello</h2>
 				<p className="app-home__description">
-					You can find here recipes for classic drinks. Please select an option from menu.
+					Drinkello is a recipe finder for classic cocktails. Please select an option from menu to get started.
 				</p>
 			</section>
 		);
@@ -30,7 +29,6 @@ class HomePage extends React.Component {
 			<main className="app-home">
                 <HomeMainSection />
 			</main>
-                <Footer />
             </div>
 		);
 	}
