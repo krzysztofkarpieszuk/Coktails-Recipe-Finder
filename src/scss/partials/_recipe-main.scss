@@ -25,7 +25,7 @@
   padding: 10rem 0 10rem;
 
   @include flexbox {
-    justify-content: space-between;
+    justify-content: center;
   }
 
   &__content {
