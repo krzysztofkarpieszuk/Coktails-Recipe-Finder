@@ -8,14 +8,9 @@ class Menu extends React.Component {
 
 	}
 
-	handleSelect = e => {
-		// this.setState({
-		// 	open: !this.state
-		// })
-
-		console.log("hej")
-		this.menu.classList.toggle("active-menu")
-	}
+	// handleSelect = e => {
+	// 	this.menu.classList.toggle("active-menu")
+	// }
 
 	render() {
 
@@ -28,12 +23,6 @@ class Menu extends React.Component {
 					<li className="app-menu__item">
 						<NavLink to="/" className="app-menu__link" handleClick={this.handleSelect}>
 							Home
-						</NavLink>
-					</li>
-
-					<li className="app-menu__item">
-						<NavLink to="#" className="app-menu__link" handleClick={this.handleSelect}>
-							Inspire Yourself
 						</NavLink>
 					</li>
 

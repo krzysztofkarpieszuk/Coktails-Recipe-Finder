@@ -29,7 +29,7 @@ class RecipeContent extends React.Component {
 		}
 
 		// If address is /recipe-box/random ---> after clicking on get random recipe in menu
-		if (this.props == 'random') {
+		if (address == 'random') {
 			return (
 				<section className="app-recipe__content">
 					<DrinkInfo data={data} randomIndex={randomIndex} />
