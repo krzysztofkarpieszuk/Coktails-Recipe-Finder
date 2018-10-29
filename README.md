@@ -14,13 +14,9 @@ I created this app during workshop at Coders Lab course. It was my final project
 * Firebase
 
 
-#### Bugs
-* Mobile menu is not closing after clicking a link.
-* Get Random Recipe option is not working when being on page with recipe for specific drink.
-
 **Project is in Progress**
-I'm currently learning Redux to fix bugs.
-Also new features will be added
+
+I am still working on this project and new features.
 
 ## License and copyright
 Credits to http://www.liquor.com and http://www.esquire.com for recipes, images and drinks descriptions.
