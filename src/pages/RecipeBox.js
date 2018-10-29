@@ -8,7 +8,7 @@ class RecipeContent extends React.Component {
 
 		this.state = {
 			data: null,
-			address: this.props.address,
+			address: this.props.address
 		};
 	}
 
@@ -29,7 +29,7 @@ class RecipeContent extends React.Component {
 		}
 
 		// If address is /recipe-box/random ---> after clicking on get random recipe in menu
-		if (address == 'random') {
+		if (this.props == 'random') {
 			return (
 				<section className="app-recipe__content">
 					<DrinkInfo data={data} randomIndex={randomIndex} />
@@ -38,7 +38,7 @@ class RecipeContent extends React.Component {
 			);
 		}
 
-		// If address == drink, name set return new array with element with one specified drink with name in address
+		// If address == drink name set return new array with element with one specified drink with name in address
 		const element = data.filter((e) => {
 			return e.name == address;
 		});
@@ -64,6 +64,7 @@ class RecipeContent extends React.Component {
 				data: received // setting received data as data state
 			});
 		});
+
 	}
 }
 
