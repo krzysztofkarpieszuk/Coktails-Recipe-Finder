@@ -13,16 +13,6 @@ import './scss/style.scss';
 class App extends Component {
 	constructor(props) {
     super(props);
-
-		this.state = {
-      menuOpen: false
-		};
-  }
-
-  toggleMobileMenu = (menuOpen) => {
-    this.setState({
-      menuOpen
-    })
   }
 
 
@@ -30,14 +20,14 @@ class App extends Component {
 		return (
 			<HashRouter>
 				<div>
-					<Header toggleMobileMenu={this.toggleMobileMenu} />
-					<Menu menuOpen={this.state.menuOpen} />
-					<Switch>
+					<Header />
+					<Menu />
+					{/* <Switch> */}
 						<Route exact path="/" component={HomePage} />
 						 <Route path="/recipe-box/:drink" component={RecipePage} />
 						<Route path="/search" component={SearchPage} />
 						<Route path="/show-all" component={ShowAllPage} />
-					</Switch>
+					{/* </Switch> */}
 					<Footer />
 				</div>
 			</HashRouter>
