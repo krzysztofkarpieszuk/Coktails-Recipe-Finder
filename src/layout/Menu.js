@@ -39,7 +39,7 @@ const Menu = (props) => {
 
 const mapStateToProps = state => {
 	return {
-		mobileMenu: state.menu.isMenuOpen
+		mobileMenu: state.menu.isMobileMenuOpen
 	}
 }
 

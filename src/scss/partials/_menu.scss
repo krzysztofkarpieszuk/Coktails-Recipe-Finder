@@ -48,14 +48,17 @@
 
 
 // Active Menu class -----> toggle on navTrigger click
-.active-menu {
-  visibility: visible;
-  position: fixed;
-  opacity: 1;
-  top: 0;
-  left: 0;
-  z-index: 99;
-  width: 100%;
-  height: 100%;
+@include tablet {
+  .active-menu {
+    visibility: visible;
+    position: fixed;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+  }
 }
+
 

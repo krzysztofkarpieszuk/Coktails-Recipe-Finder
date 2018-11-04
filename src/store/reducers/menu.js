@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions';
 
 const initialState = {
-    isMenuOpen: false
+    isMobileMenuOpen: false
 }
 
 const menuReducer = (state = initialState, action) => {
@@ -9,13 +9,16 @@ const menuReducer = (state = initialState, action) => {
         case actionTypes.TOGGLE_MENU:
             return {
                 ...state,
-                isMenuOpen: !state.isMenuOpen
+                isMobileMenuOpen: !state.isMobileMenuOpen
             }
         case actionTypes.SELECT_LINK:
-            return {
-                ...state,
-                isMenuOpen: !state.isMenuOpen
-            }     
+            if (state.isMobileMenuOpen) {
+                return {
+                    ...state,
+                    isMobileMenuOpen: false
+                }
+            } 
+
     }
     return state;
 }

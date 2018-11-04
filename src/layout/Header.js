@@ -10,18 +10,8 @@ class Header extends React.Component {
 
    }
 
-//    handleClick = (e) => {
-// 		e.currentTarget.classList.toggle('open');
-
-// 			this.setState ({
-// 				menuOpen: !this.state.menuOpen
-// 			})
-
-// 			this.props.toggleMobileMenu(!this.state.menuOpen)
-// 	};
-
    render() {
-	const openClass = this.props.mobileMenu ? 'open' : '';
+	const openClass = this.props.mobileMenuOpen ? 'open' : '';
 
 	return (
 		<header className="app-header">
@@ -43,7 +33,7 @@ class Header extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		mobileMenu: state.menu.isMenuOpen
+		mobileMenuOpen: state.menu.isMobileMenuOpen
 	}
 }
 
