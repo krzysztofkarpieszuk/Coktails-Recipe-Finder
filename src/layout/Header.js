@@ -1,31 +1,23 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import { connect } from 'react-redux';
+import * as actionTypes from '../store/actions';
+
 
 class Header extends React.Component {
-   constructor() {
-	   super()
+   constructor(props) {
+	   super(props)
 
-	   this.state = {
-		menuOpen: false
-	   }
    }
 
-   handleClick = (e) => {
-		e.currentTarget.classList.toggle('open');
-
-			this.setState ({
-				menuOpen: !this.state.menuOpen
-			})
-
-			this.props.toggleMobileMenu(!this.state.menuOpen)
-	};
-
    render() {
+	const openClass = this.props.mobileMenuOpen ? 'open' : '';
+
 	return (
 		<header className="app-header">
 			<div className="container">
 			<div className="navTrigger">
-				<div className="wrapper-menu" onClick={this.handleClick}>
+				<div className={`wrapper-menu ${openClass}`} onClick={this.props.onHamburgerClick}>
 					<div className="line-menu half start" />
 					<div className="line-menu" />
 					<div className="line-menu half end" />
@@ -35,9 +27,20 @@ class Header extends React.Component {
 			</div>
 		</header>
 	)
-
    }
-
 }
 
-export default Header;
+
+const mapStateToProps = state => {
+	return {
+		mobileMenuOpen: state.menu.isMobileMenuOpen
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		onHamburgerClick: () => dispatch({ type: actionTypes.TOGGLE_MENU })
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
