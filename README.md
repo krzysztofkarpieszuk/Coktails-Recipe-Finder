@@ -1,7 +1,5 @@
 # DRINKELLO
 
-**Version 1.0**
-
 Web Application using Firebase to display recipes for cocktails. It gives an option to find random recipe and search by name or alcohol type.
 
 
@@ -9,8 +7,9 @@ Web Application using Firebase to display recipes for cocktails. It gives an opt
 I created this app during workshop at Coders Lab course. It was my final project for Javascript Developer: React course graduation.
 
 #### Technologies
-* Create React App
-* SASS
+* React
+* Redux
+* Styles written in SASS
 * Firebase
 
 
