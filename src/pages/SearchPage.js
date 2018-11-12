@@ -11,7 +11,7 @@ const SearchResults = (props) => {
 		const url= `url(${e.imgURL})`
 		const address = `/recipe-box/${e.name}`
 		return (
-			<div className="result-box" style={{ backgroundImage: url }}>
+			<div className="result-box" key={i} style={{ backgroundImage: url }}>
 				<Link to={address} className="result-link">
 					<div className="result-info">{e.name}</div>
 				</Link>
@@ -109,7 +109,7 @@ class SearchMainContent extends React.Component {
 // Component rendering Search Page with finder
 const SearchPage = () => {
 	return (
-		<div className="bg-wrapper-search">
+		<div className="bg-wrapper-home">
 			<main className="app-search">
 				<SearchMainContent />
 			</main>
