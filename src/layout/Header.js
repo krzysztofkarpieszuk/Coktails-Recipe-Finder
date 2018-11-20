@@ -7,7 +7,6 @@ import * as actionTypes from '../store/actions';
 class Header extends React.Component {
    constructor(props) {
 	   super(props)
-
    }
 
    render() {

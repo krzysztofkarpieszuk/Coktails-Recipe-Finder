@@ -1,5 +1,4 @@
 import React from 'react';
-import { db } from '../firebase';
 
 // Component rendering box for recipe
 class RecipeContent extends React.Component {
@@ -7,25 +6,13 @@ class RecipeContent extends React.Component {
 		super(props);
 
 		this.state = {
-			data: null
+			data: this.props.data
 		};
 	}
 
 	render() {
 		const randomIndex = Math.floor(Math.random() * (12 - 0 + 1) + 0); // Setting random number as index to find random recipe
 		const { data } = this.state;
-
-		// If data is not received yet show loader
-		if (data === null) {
-			return (
-				<section className="app-recipe__content">
-					<div className="loader">
-						Loading
-						<span />
-					</div>
-				</section>
-			);
-		}
 
 		// If address is /recipe-box/random ---> after clicking on get random recipe in menu
 		if (this.props.address === 'random') {
@@ -49,20 +36,6 @@ class RecipeContent extends React.Component {
 				<DrinkRecipe data={element} />
 			</section>
 		);
-	}
-
-	// Getting data from firebase
-	componentDidMount() {
-		db.collection('cocktails').get().then((response) => {
-			let received = [];
-			response.docs.forEach((element) => {
-				received.push(element.data()); // pushing received data to an empty array
-			});
-
-			this.setState({
-				data: received // setting received data as data state
-			});
-		});
 	}
 }
 
@@ -114,7 +87,7 @@ const RecipePage = (props) => {
 	return (
 		<div className="bg-wrapper-recipe">
 			<main className="app-recipe">
-				<RecipeContent address={address} />
+				<RecipeContent address={address} data={props.data} />
 			</main>
 		</div>
 	);

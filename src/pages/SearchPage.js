@@ -1,8 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { db } from '../firebase';
-
-
 
 // Rendering search result
 const SearchResults = (props) => {
@@ -25,11 +22,11 @@ const SearchResults = (props) => {
 
 // Component rendering box for finder
 class SearchMainContent extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
-			data: null,
+			data: this.props.data,
 			searchValue: ''
 		};
 	}
@@ -43,18 +40,6 @@ class SearchMainContent extends React.Component {
 
 	render() {
 		const { data, searchValue } = this.state;
-
-		if (data === null) {
-			return (
-				// If data is not received yet show loader
-				<section className="app-recipe__content">
-					<div className="loader">
-						Loading
-						<span />
-					</div>
-				</section>
-			);
-		} else {
 
 			// Filtering received data depending on serach input value;
 			const filter = this.state.searchValue;
@@ -88,30 +73,16 @@ class SearchMainContent extends React.Component {
 					{searchValue !== "" && <SearchResults data={foundItems}/>}
 				</section>
 			);
-		}
-	}
 
-	componentDidMount() {
-		// Getting data from database
-		db.collection('cocktails').get().then((response) => {
-			let received = [];
-			response.docs.forEach((element) => {
-				received.push(element.data()); // pushing received data to an empty array
-			});
-
-			this.setState({
-				data: received // setting received data as data state
-			});
-		});
 	}
 }
 
 // Component rendering Search Page with finder
-const SearchPage = () => {
+const SearchPage = (props) => {
 	return (
 		<div className="bg-wrapper-home">
 			<main className="app-search">
-				<SearchMainContent />
+				<SearchMainContent data={props.data} />
 			</main>
 		</div>
 	);
