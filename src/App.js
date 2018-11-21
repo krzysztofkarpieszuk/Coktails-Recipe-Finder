@@ -36,31 +36,39 @@ class App extends Component {
 	}
 
 	render() {
-
-		const {data} = this.state;
+		const { data } = this.state;
 
 		if (!data) {
-			return null
-		}
-
-		else {
 			return (
-			<HashRouter>
-				<div>
-					<Header />
-					<Menu />
-					<Switch>
-					<Route exact path="/" component={HomePage} />
-					<Route path="/recipe-box/:drink" render={(routeProps) => <RecipePage {...routeProps} data={data}/>} />
-					<Route path="/search" render={() => <SearchPage data={data} />} />
-					<Route path="/show-all" render={() => <ShowAllPage data={data} />} />
-					</Switch>
-					<Footer />
+				<div className="loader">
+					<div className="sk-folding-cube">
+						<div className="sk-cube1 sk-cube" />
+						<div className="sk-cube2 sk-cube" />
+						<div className="sk-cube4 sk-cube" />
+						<div className="sk-cube3 sk-cube" />
+					</div>
 				</div>
-			</HashRouter>
-		);
+			);
+		} else {
+			return (
+				<HashRouter>
+					<div>
+						<Header />
+						<Menu />
+						<Switch>
+							<Route exact path="/" component={HomePage} />
+							<Route
+								path="/recipe-box/:drink"
+								render={(routeProps) => <RecipePage {...routeProps} data={data} />}
+							/>
+							<Route path="/search" render={() => <SearchPage data={data} />} />
+							<Route path="/show-all" render={() => <ShowAllPage data={data} />} />
+						</Switch>
+						<Footer />
+					</div>
+				</HashRouter>
+			);
 		}
-
 	}
 }
 
