@@ -1,5 +1,4 @@
 import React from 'react';
-import { db } from '../firebase';
 import { Link } from 'react-router-dom';
 
 
@@ -21,29 +20,15 @@ const Gallery = (props) => {
 
 
 class ShowAllPage extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
-			data: null
+			data: this.props.data
 		};
 	}
 
 	render() {
-		if (this.state.data === null) {
-			return (
-				// If data is not received yet show loader
-				<div className="bg-wrapper-home">
-					<section className="app-recipe__content">
-						<div className="loader">
-							Loading
-							<span />
-						</div>
-					</section>
-				</div>
-			);
-		}
-
 		return (
 			<div className="bg-wrapper-home">
 				<main className="app-home">
@@ -53,19 +38,6 @@ class ShowAllPage extends React.Component {
 		);
 	}
 
-	componentDidMount() {
-		// Getting data from database
-		db.collection('cocktails').get().then((response) => {
-			let received = [];
-			response.docs.forEach((element) => {
-				received.push(element.data()); // pushing received data to an empty array
-			});
-
-			this.setState({
-				data: received // setting received data as data state
-			});
-		});
-	}
 }
 
 export default ShowAllPage;
