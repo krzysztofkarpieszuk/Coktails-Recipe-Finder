@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
+import { Link } from 'react-router-dom';
 
 const HomeSlider = () => {
 	const settings = {
@@ -11,34 +12,35 @@ const HomeSlider = () => {
 		autoplay: true,
 		autoplaySpeed: 5000,
 		arrows: false,
-		breakpoints: [800, 550, 420, 330]
-	}
+		breakpoints: [ 800, 550, 420, 330 ]
+	};
 
 	return (
-
-		<Slider {...settings} >
+		<Slider {...settings}>
 			<div>
 				<h2 className="app-home__title">Welcome to Drinkello</h2>
 				<p className="app-home__description">
-				Drinkello is a recipe finder for classic cocktails. Please select an option from menu to get started.
+					Looking for some inspiration? Leave it to me! <br/> I will draw you recipe for a classic cocktail.
 				</p>
+				<Link to="/recipe-box/random" className="btn-home__cta">Get Inspired</Link>
 			</div>
 			<div>
 				<h2 className="app-home__title">Welcome to Drinkello</h2>
 				<p className="app-home__description">
-				Drinkello is a recipe finder for classic cocktails. Please select an option from menu to get started.
+					Would you like to see my drinks collection?
 				</p>
+				<Link to="/show-all" className="btn-home__cta">All Drinks</Link>
 			</div>
 			<div>
 				<h2 className="app-home__title">Welcome to Drinkello</h2>
 				<p className="app-home__description">
-				Drinkello is a recipe finder for classic cocktails. Please select an option from menu to get started.
+					See five most popular recipes in my sleeve!
 				</p>
+				<button className="btn-home__cta">Most Popular Drinks</button>
 			</div>
 		</Slider>
-
-	)
-}
+	);
+};
 
 const HomeMainSection = () => {
 	return (
@@ -46,18 +48,16 @@ const HomeMainSection = () => {
 			<HomeSlider />
 		</section>
 	);
-}
+};
 
 const HomePage = () => {
 	return (
 		<div className="bg-wrapper-home">
-		<main className="app-home">
-			<HomeMainSection />
-		</main>
+			<main className="app-home">
+				<HomeMainSection />
+			</main>
 		</div>
 	);
-}
-
-
+};
 
 export default HomePage;

@@ -65,7 +65,7 @@ class SearchMainContent extends React.Component {
 						name=""
 						id=""
 						className="app-search__input"
-						placeholder="Start typing..."
+						placeholder="Type name or alcohol..."
 						onChange={this.handleInputSearch}
 						value={searchValue}
 					/>

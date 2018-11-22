@@ -121,6 +121,7 @@
     width: 100%;
     position: relative;
     text-decoration: none;
+    transition: opacity 0.5s;
 
     @include flexbox {
       align-items: center;
