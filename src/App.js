@@ -56,7 +56,7 @@ class App extends Component {
 						<Header />
 						<Menu />
 						<Switch>
-							<Route exact path="/" component={HomePage} />
+							<Route exact path="/" render={() => <HomePage data={data} />} />
 							<Route
 								path="/recipe-box/:drink"
 								render={(routeProps) => <RecipePage {...routeProps} data={data} />}

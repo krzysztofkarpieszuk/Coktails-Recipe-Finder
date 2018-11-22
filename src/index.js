@@ -4,10 +4,11 @@ import App from './App';
 import { Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux';
 import menuReducer from './store/reducers/menu'
-
+import popularDrinksReducer from './store/reducers/popular-drinks';
 
 const rootReducer = combineReducers({
-    menu: menuReducer
+    menu: menuReducer,
+    popular: popularDrinksReducer
 })
 
 const store = createStore(rootReducer);
