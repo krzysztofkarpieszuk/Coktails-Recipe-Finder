@@ -132,6 +132,12 @@
       opacity: 1;
     }
 
+    @include tablet {
+      opacity: 1;
+      background: transparent;
+      align-items: flex-end;
+    }
+
     // Name of found drink on hover
     .result-info {
       color: $color-description;
@@ -140,6 +146,13 @@
       padding: 1.5rem;
       border: 2px solid $color-description;
       text-align: center;
+
+      @include tablet {
+        background: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        padding: 0.5rem;
+        border: none;
+      }
     }
   }
 }
