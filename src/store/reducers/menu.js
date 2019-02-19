@@ -18,7 +18,7 @@ const menuReducer = (state = initialState, action) => {
                     isMobileMenuOpen: false
                 }
             }
-            break;
+            return state;
         default:
             return state;
     }
