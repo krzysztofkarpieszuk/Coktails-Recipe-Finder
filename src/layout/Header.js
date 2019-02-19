@@ -1,22 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import * as actionTypes from '../store/actions';
 
-
-class Header extends React.Component {
-   constructor(props) {
-	   super(props)
-   }
-
-   render() {
-	const openClass = this.props.mobileMenuOpen ? 'open' : '';
+function Header(props) {
+	const openClass = props.mobileMenuOpen ? 'open' : '';
 
 	return (
 		<header className="app-header">
 			<div className="container">
 			<div className="navTrigger">
-				<div className={`wrapper-menu ${openClass}`} onClick={this.props.onHamburgerClick}>
+				<div className={`wrapper-menu ${openClass}`} onClick={props.onHamburgerClick}>
 					<div className="line-menu half start" />
 					<div className="line-menu" />
 					<div className="line-menu half end" />
@@ -26,7 +20,6 @@ class Header extends React.Component {
 			</div>
 		</header>
 	)
-   }
 }
 
 

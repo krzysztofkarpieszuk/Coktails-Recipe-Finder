@@ -1,3 +1,2 @@
 export const TOGGLE_MENU = "TOGGLE_MENU";
 export const SELECT_LINK = "SELECT_LINK";
-export const TOGGLE_POPULAR_DRINKS = "TOGGLE_POPULAR_DRINKS";

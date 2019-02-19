@@ -1,6 +1,5 @@
 import React from 'react';
 
-// Component rendering box for recipe
 class RecipeContent extends React.Component {
 	constructor(props) {
 		super(props);
@@ -11,10 +10,9 @@ class RecipeContent extends React.Component {
 	}
 
 	render() {
-		const randomIndex = Math.floor(Math.random() * (12 - 0 + 1) + 0); // Setting random number as index to find random recipe
 		const { data } = this.state;
+		const randomIndex = Math.floor(Math.random() * (data.length - 1 + 1) + 0);
 
-		// If address is /recipe-box/random ---> after clicking on get random recipe in menu
 		if (this.props.address === 'random') {
 			return (
 				<section className="app-recipe__content">
@@ -24,12 +22,10 @@ class RecipeContent extends React.Component {
 			);
 		}
 
-		// If address == drink name set return new array with element with one specified drink with name in address
 		const element = data.filter((e) => {
 			return e.name === this.props.address;
 		});
 
-		// render recipe box with info and prescription for drink with name in address
 		return (
 			<section className="app-recipe__content">
 				<DrinkInfo data={element} />
@@ -39,8 +35,8 @@ class RecipeContent extends React.Component {
 	}
 }
 
-const DrinkInfo = (props) => {
-	const randomIndex = props.randomIndex || 0; // randomIndex received with props or 0 if props was not defined
+function DrinkInfo(props) {
+	const randomIndex = props.randomIndex || 0;
 	const drink = props.data[randomIndex];
 
 	return (
@@ -52,16 +48,14 @@ const DrinkInfo = (props) => {
 	);
 };
 
-const DrinkRecipe = (props) => {
-	const randomIndex = props.randomIndex || 0; // randomIndex received with props or 0 if props was not defined
+function DrinkRecipe(props) {
+	const randomIndex = props.randomIndex || 0;
 	const drink = props.data[randomIndex];
 
-	// map on array with ingredients ---> returns list item with ingredient
 	let ingredient = drink.ingredients.map((e, i) => {
 		return <li key={`ingredient${i}`}>{e}</li>;
 	});
 
-	// map on array with steps to prepare drink ---> returns list item with one step
 	let step = drink.steps.map((e, i) => {
 		return <li key={`step${i}`}>{e}</li>;
 	});
@@ -81,8 +75,7 @@ const DrinkRecipe = (props) => {
 	);
 };
 
-// Component rendering page with recipe for drink
-const RecipePage = (props) => {
+function RecipePage(props) {
 	const address = props.match.params.drink;
 	return (
 		<div className="bg-wrapper-recipe">

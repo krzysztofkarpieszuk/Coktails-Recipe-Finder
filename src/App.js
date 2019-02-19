@@ -25,11 +25,11 @@ class App extends Component {
 			db.collection('cocktails').get().then((response) => {
 				let received = [];
 				response.docs.forEach((element) => {
-					received.push(element.data()); // pushing received data to an empty array
+					received.push(element.data());
 				});
 
 				this.setState({
-					data: received // setting received data as data state
+					data: received
 				});
 			});
 		}

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import * as actionTypes from '../store/actions';
 
-const Menu = (props) => {
+function Menu(props) {
 	const openClass = props.mobileMenu ? 'active-menu' : '';
 
 	return (
