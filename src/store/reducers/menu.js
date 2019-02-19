@@ -18,9 +18,10 @@ const menuReducer = (state = initialState, action) => {
                     isMobileMenuOpen: false
                 }
             }
+            break;
+        default:
+            return state;
     }
-    
-    return state;
 }
 
 export default menuReducer;

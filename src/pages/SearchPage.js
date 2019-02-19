@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// Rendering search result
-const SearchResults = (props) => {
+export function SearchResults(props) {
 
-	const drink = props.data.map((e, i) => {
-		const url= `url(${e.imgURL})`
-		const address = `/recipe-box/${e.name}`
+	const drink = props.data.map((drink, index) => {
+		const url= `url(${drink.imgURL})`
+		const address = `/recipe-box/${drink.name}`
 		return (
-			<div className="result-box" key={i} style={{ backgroundImage: url }}>
+			<div className="result-box" key={drink.id} style={{ backgroundImage: url }}>
 				<Link to={address} className="result-link">
-					<div className="result-info">{e.name}</div>
+					<div className="result-info">{drink.name}</div>
 				</Link>
 			</div>
 		);
@@ -20,7 +19,6 @@ const SearchResults = (props) => {
 }
 
 
-// Component rendering box for finder
 class SearchMainContent extends React.Component {
 	constructor(props) {
 		super(props);
@@ -31,32 +29,30 @@ class SearchMainContent extends React.Component {
 		};
 	}
 
-	// Function setting state with value from input on change
-	handleInputSearch = (e) => {
+	handleInputSearch = event => {
 		this.setState({
-			searchValue: e.target.value
+			searchValue: event.target.value
 		});
 	};
 
 	render() {
 		const { data, searchValue } = this.state;
 
-			// Filtering received data depending on serach input value;
 			const filter = this.state.searchValue;
-			const foundItems = data.filter((element) => {
+			const foundItems = data.filter(drink => {
 				let typedValue = `^${filter.toLocaleLowerCase()}`;
 				let char = new RegExp(typedValue, "g");
 
-				// itering through array of tags and checking if typed value matches tag
-				for (let i = 0; i < element.tags.length; i++) {
-					if ( element.tags[i].toLocaleLowerCase().match(char) != null ) {
-						return element
+				let matchingDrinks = [];
+				drink.tags.forEach(tag => {
+					if (tag.toLocaleLowerCase().match(char) != null ) {
+						matchingDrinks.push(drink);
 					}
-				}
+				});
+
+				return matchingDrinks;
 			});
 
-
-			// Renders search box if data is already received
 			return (
 				<section className="app-search__content">
 					<h2 className="app-search__title">Find Your Drink</h2>
@@ -77,8 +73,7 @@ class SearchMainContent extends React.Component {
 	}
 }
 
-// Component rendering Search Page with finder
-const SearchPage = (props) => {
+function SearchPage(props) {
 	return (
 		<div className="bg-wrapper-home">
 			<main className="app-search">
