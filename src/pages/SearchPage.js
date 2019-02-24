@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 export function SearchResults(props) {
 
-	const drink = props.data.map((drink, index) => {
-		const url= `url(${drink.imgURL})`
-		const address = `/recipe-box/${drink.name}`
+	const drink = props.drinksList.map(drink => {
+		const url= `url(${drink.imgURL})`;
+		const address = `/recipe-box/${drink.id}`;
 		return (
 			<div className="result-box" key={drink.id} style={{ backgroundImage: url }}>
 				<Link to={address} className="result-link">
@@ -24,7 +24,6 @@ class SearchMainContent extends React.Component {
 		super(props);
 
 		this.state = {
-			data: this.props.data,
 			searchValue: ''
 		};
 	}
@@ -36,21 +35,12 @@ class SearchMainContent extends React.Component {
 	};
 
 	render() {
-		const { data, searchValue } = this.state;
+			const {searchValue} = this.state;
 
-			const filter = this.state.searchValue;
-			const foundItems = data.filter(drink => {
-				let typedValue = `^${filter.toLocaleLowerCase()}`;
-				let char = new RegExp(typedValue, "g");
-
-				let matchingDrinks = [];
-				drink.tags.forEach(tag => {
-					if (tag.toLocaleLowerCase().match(char) != null ) {
-						matchingDrinks.push(drink);
-					}
-				});
-
-				return matchingDrinks;
+			const foundItems = this.props.drinksList.filter(drink => {
+				const typedValue = `^${searchValue.toLocaleLowerCase()}`;
+				const char = new RegExp(typedValue, "g");
+				return !!drink.tags.some(tag => tag.toLocaleLowerCase().match(char));
 			});
 
 			return (
@@ -58,15 +48,13 @@ class SearchMainContent extends React.Component {
 					<h2 className="app-search__title">Find Your Drink</h2>
 					<input
 						type="search"
-						name=""
-						id=""
 						className="app-search__input"
 						placeholder="Type name or alcohol..."
 						onChange={this.handleInputSearch}
 						value={searchValue}
 					/>
 
-					{searchValue !== "" && <SearchResults data={foundItems}/>}
+					{searchValue !== "" && <SearchResults drinksList={foundItems}/>}
 				</section>
 			);
 
@@ -77,7 +65,7 @@ function SearchPage(props) {
 	return (
 		<div className="bg-wrapper-home">
 			<main className="app-search">
-				<SearchMainContent data={props.data} />
+				<SearchMainContent drinksList={props.drinksList} />
 			</main>
 		</div>
 	);

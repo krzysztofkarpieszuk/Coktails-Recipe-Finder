@@ -2,7 +2,7 @@ import * as actionTypes from '../actions';
 
 const initialState = {
     isMobileMenuOpen: false
-}
+};
 
 const menuReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -10,18 +10,18 @@ const menuReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isMobileMenuOpen: !state.isMobileMenuOpen
-            }
+            };
         case actionTypes.SELECT_LINK:
             if (state.isMobileMenuOpen) {
                 return {
                     ...state,
                     isMobileMenuOpen: false
-                }
+                };
             }
             return state;
         default:
             return state;
     }
-}
+};
 
 export default menuReducer;

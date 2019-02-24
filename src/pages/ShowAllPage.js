@@ -5,7 +5,7 @@ function ShowAllPage(props) {
 	return (
 		<div className="bg-wrapper-home">
 			<main className="app-home">
-				<SearchResults data={props.data} />
+				<SearchResults drinksList={props.drinksList} />
 			</main>
 		</div>
 	)

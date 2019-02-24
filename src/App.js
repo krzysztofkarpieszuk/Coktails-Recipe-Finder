@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import HomePage from './pages/HomePage';
-import { HashRouter, Route, Switch } from 'react-router-dom';
-import RecipePage from './pages/RecipeBox';
+import {HashRouter, Route, Switch} from 'react-router-dom';
+import RecipePage from './pages/RecipePage';
 import SearchPage from './pages/SearchPage';
 import ShowAllPage from './pages/ShowAllPage';
-import { db } from './firebase';
+import {db} from './firebase';
 
 import Header from './layout/Header';
 import Menu from './layout/Menu';
@@ -16,12 +16,12 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-			data: null
+			drinksList: null
 		};
 	}
 
 	componentDidMount() {
-		if (!this.state.data) {
+		if (!this.state.drinksList) {
 			db.collection('cocktails').get().then((response) => {
 				let received = [];
 				response.docs.forEach((element) => {
@@ -29,16 +29,16 @@ class App extends Component {
 				});
 
 				this.setState({
-					data: received
+					drinksList: received
 				});
 			});
 		}
 	}
 
 	render() {
-		const { data } = this.state;
+		const { drinksList } = this.state;
 
-		if (!data) {
+		if (!drinksList) {
 			return (
 				<div className="loader">
 					<div className="sk-folding-cube">
@@ -56,13 +56,13 @@ class App extends Component {
 						<Header />
 						<Menu />
 						<Switch>
-							<Route exact path="/" render={() => <HomePage data={data} />} />
+							<Route exact path="/" render={() => <HomePage drinksList={drinksList} />} />
 							<Route
-								path="/recipe-box/:drink"
-								render={(routeProps) => <RecipePage {...routeProps} data={data} />}
+								path="/recipe-box/:drinkId"
+								render={(routeProps) => <RecipePage {...routeProps} drinksList={drinksList} />}
 							/>
-							<Route path="/search" render={() => <SearchPage data={data} />} />
-							<Route path="/show-all" render={() => <ShowAllPage data={data} />} />
+							<Route path="/search" render={() => <SearchPage drinksList={drinksList} />} />
+							<Route path="/show-all" render={() => <ShowAllPage drinksList={drinksList} />} />
 						</Switch>
 						<Footer />
 					</div>

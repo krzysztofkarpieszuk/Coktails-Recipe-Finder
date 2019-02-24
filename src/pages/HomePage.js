@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const HomePage = (props) => {
+function HomePage() {
 	return (
 		<div className="bg-wrapper-home">
 			<main className="app-home">
