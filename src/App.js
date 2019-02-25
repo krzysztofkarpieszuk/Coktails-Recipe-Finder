@@ -7,7 +7,6 @@ import ShowAllPage from './pages/ShowAllPage';
 import {db} from './firebase';
 
 import Header from './layout/Header';
-import Menu from './layout/Menu';
 import Footer from './layout/Footer';
 import './scss/style.scss';
 
@@ -54,7 +53,6 @@ class App extends Component {
 				<HashRouter>
 					<div>
 						<Header />
-						<Menu />
 						<Switch>
 							<Route exact path="/" render={() => <HomePage drinksList={drinksList} />} />
 							<Route

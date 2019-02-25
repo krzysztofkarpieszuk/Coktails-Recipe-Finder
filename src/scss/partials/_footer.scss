@@ -28,22 +28,22 @@
       text-align: center;
 
       // Media queries for small devices
-      @include small {
-        font-size: 1.2rem !important;
-      }
+      //@include small {
+      //  font-size: 1.2rem !important;
+      //}
     }
 
 
     // Media queries medium devices
-    @include medium {
-      @include flexbox {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        padding: 1rem
-      }
-    }
+    //@include medium {
+    //  @include flexbox {
+    //    flex-direction: column;
+    //    align-items: center;
+    //    justify-content: center;
+    //    font-size: 1.2rem;
+    //    padding: 1rem
+    //  }
+    //}
   }
 
   // Link about Me
@@ -54,9 +54,9 @@
     text-decoration: none;
 
     // Media queries small devices
-    @include small {
-      font-size: 1.2rem !important;
-    }
+    //@include small {
+    //  font-size: 1.2rem !important;
+    //}
   }
 
   // Link to github page

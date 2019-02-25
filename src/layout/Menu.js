@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import * as actionTypes from '../store/actions';
 
-function Menu(props) {
+export function Menu(props) {
 	const openClass = props.mobileMenu ? 'active-menu' : '';
 
 	return (
@@ -34,6 +34,7 @@ function Menu(props) {
 				</li>
 			</ul>
 		</nav>
+
 	);
 };
 

@@ -35,9 +35,9 @@
     margin-left: 0;
   }
 
-  @include mobile {
-    padding: 3rem 1rem 0;
-  }
+  //@include mobile {
+  //  padding: 3rem 1rem 0;
+  //}
 
 
   &__content {
@@ -60,10 +60,10 @@
     }
 
 
-    @include mobile {
-      font-size: 3.5rem;
-      margin-top: 0;
-    }
+  //  @include mobile {
+  //    font-size: 3.5rem;
+  //    margin-top: 0;
+  //  }
   }
 
 
@@ -84,10 +84,10 @@
     }
 
 
-    @include mobile {
-      font-size: 2rem;
-      width: 100%;
-    }
+    //@include mobile {
+    //  font-size: 2rem;
+    //  width: 100%;
+    //}
   }
 }
 

@@ -10,12 +10,12 @@
   width: 100%;
   min-height: 100vh;
 
-  @include tablet {
-    @include flexbox {
-      flex-direction: column;
-      justify-content: space-between;
-    }
-  }
+  //@include tablet {
+  //  @include flexbox {
+  //    flex-direction: column;
+  //    justify-content: space-between;
+  //  }
+  //}
 }
 
 // Main Section Recipe Box
@@ -39,9 +39,9 @@
     }
 
     // Main Recipe Box Media queries mobile
-    @include mobile {
-      padding-left: 1rem;
-    }
+    //@include mobile {
+    //  padding-left: 1rem;
+    //}
   }
 
   &__info {
@@ -65,10 +65,10 @@
     }
 
     // drink name Media queries mobile
-    @include mobile {
-      font-size: 3.5rem;
-      margin-top: 0;
-    }
+    //@include mobile {
+    //  font-size: 3.5rem;
+    //  margin-top: 0;
+    //}
   }
 
   &__description {
@@ -86,10 +86,10 @@
     }
 
     // description media queries mobile
-    @include mobile {
-      font-size: 1.7rem;
-      width: 90%;
-    }
+    //@include mobile {
+    //  font-size: 1.7rem;
+    //  width: 90%;
+    //}
   }
 
 
@@ -106,9 +106,9 @@
     }
 
     // Drink image media queries mobile
-    @include mobile {
-      width: 80%;
-    }
+    //@include mobile {
+    //  width: 80%;
+    //}
   }
 
 
@@ -156,11 +156,11 @@
       }
     }
 
-    @include mobile {
-      li {
-        font-size: 1.7rem;
-      }
-    }
+    //@include mobile {
+    //  li {
+    //    font-size: 1.7rem;
+    //  }
+    //}
   }
 
   // Ingredients box
