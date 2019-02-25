@@ -6,8 +6,8 @@ function MobileMenuTrigger(props) {
     const openClass = props.mobileMenuOpen ? 'open' : '';
 
     return (
-        <div className="mobile-menu-trigger">
-            <div className={`mobile-menu-trigger__wrapper ${openClass}`} onClick={props.onHamburgerClick}>
+        <div className="mobile-menu-trigger" onClick={props.onHamburgerClick}>
+            <div className={`mobile-menu-trigger__wrapper ${openClass}`}>
                 <div className="mobile-menu-trigger__line half start" />
                 <div className="mobile-menu-trigger__line" />
                 <div className="mobile-menu-trigger__line half end" />

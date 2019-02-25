@@ -2,7 +2,6 @@
 .app-menu {
   background: rgba(0, 0, 0, 0.9);
   width: 28rem;
-  overflow: auto;
   z-index: 2;
   position: fixed;
   top: 70px;
@@ -10,39 +9,72 @@
   height: 100%;
   transition: right 1s cubic-bezier(0.190, 1.000, 0.220, 1.000);
 
+  @include desktop {
+    position: static;
+    top: 0;
+    right: 0;
+    background: transparent;
+    z-index: 1;
+    transition: none;
+    width: auto;
+  }
+
   &__list {
     list-style-type: none;
+
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
   }
 
   &__item {
     text-align: right;
     margin: 0 0 1rem 0;
+
+    @include desktop {
+      margin: 0;
+    }
   }
 
   &__link {
     text-decoration: none;
     display: inline-block;
     padding: 1.5rem 2.5rem 1.5rem;
-
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     text-align: center;
     font-weight: 700;
     color: #fff;
     letter-spacing: 0.2rem;
     text-transform: uppercase;
 
+    @include large {
+      font-size: 1.7rem;
+    }
+
     &::after {
       content: '';
       display: block;
       width: 0;
       height: 2px;
-      background: #fff;
-      transition: width 0.4s;
+      background: $color-link-hover;
+      transition: width 0.4s, color 0.4s ease-in-out;
+    }
+
+    &:hover {
+      color: $color-link-hover;
     }
 
     &:hover::after {
       width: 100%;
       transition: width 0.4s;
+    }
+
+    @include desktop {
+      display: block;
+      padding: 1.5rem 1.5rem;
     }
   }
 }
