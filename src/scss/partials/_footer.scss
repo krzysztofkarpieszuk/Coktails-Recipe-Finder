@@ -1,68 +1,49 @@
 // FOOTER
 
 .app-footer {
-  position: absolute;
+  position: relative;
   background: #000;
   width: 100%;
   bottom: 0;
   left: 0;
-  z-index: 9999;
+  right: 0;
+  z-index: 0;
   padding: 1rem 0;
+  height: $footer-height-mobile;
+  margin: $header-height 0 0;
 
-  @include tablet {
-    z-index: 9;
+  @include small {
+    height: $footer-height-small;
   }
 
-  &__container {
-    @include flexbox {
-      justify-content: space-evenly;
-      align-items: center;
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    @include small {
+      flex-direction: row;
+      justify-content: center;
     }
-
-    padding-top: 0.4rem;
-
-    p {
-      font-size: 1.5rem;
-      color: $color-description;
-      margin: 1rem 0;
-      text-align: center;
-
-      // Media queries for small devices
-      //@include small {
-      //  font-size: 1.2rem !important;
-      //}
-    }
-
-
-    // Media queries medium devices
-    //@include medium {
-    //  @include flexbox {
-    //    flex-direction: column;
-    //    align-items: center;
-    //    justify-content: center;
-    //    font-size: 1.2rem;
-    //    padding: 1rem
-    //  }
-    //}
   }
 
-  // Link about Me
-  &__about-link {
-    margin: 1rem 0;
-    font-size: 1.5rem;
+  &__copy {
+    font-size: 1.8rem;
     color: $color-description;
-    text-decoration: none;
+    text-align: center;
+    margin: 1rem auto 0;
 
-    // Media queries small devices
-    //@include small {
-    //  font-size: 1.2rem !important;
-    //}
+    @include small {
+      margin: 0;
+      padding: 1rem;
+    }
   }
 
-  // Link to github page
-  &__github-app-link {
+  &__link {
     color: $color-description;
     font-size: 2.5rem;
+    padding: 1rem;
   }
-
 }

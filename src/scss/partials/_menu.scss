@@ -17,6 +17,7 @@
     z-index: 1;
     transition: none;
     width: auto;
+    margin: 0 2rem 0 0;
   }
 
   &__list {
@@ -50,7 +51,7 @@
     letter-spacing: 0.2rem;
     text-transform: uppercase;
 
-    @include large {
+    @include wide {
       font-size: 1.7rem;
     }
 

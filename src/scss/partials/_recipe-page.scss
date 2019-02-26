@@ -1,0 +1,167 @@
+// Wrapper for image
+.bg-wrapper-recipe {
+  background-image: linear-gradient($color-bg-linear-default, $color-bg-linear-default),
+                    url("../images/recipe-box-bg-tiny.jpg");
+}
+
+.container--recipe {
+  justify-content: start;
+}
+
+.app-recipe {
+  padding: 0 0.5rem;
+  margin: 0 0 5rem 0;
+  &__info {
+    margin: 1rem 0 2rem;
+  }
+
+  &__info-name {
+    font-size: 3.5rem;
+    color: $color-title;
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    text-align: center;
+
+    @include small {
+      font-size: 4.5rem;
+    }
+
+    @include tablet {
+      font-size: 5.5rem;
+    }
+
+    @include desktop {
+      font-size: 6.5rem;
+    }
+
+    @include wide {
+      font-size: 8rem;
+    }
+  }
+
+  &__info-description {
+    padding: 1rem 0;
+    color: $color-description;
+    font-size: 1.8rem;
+    letter-spacing: 0.2rem;
+    text-align: center;
+
+    @include small {
+      font-size: 2.1rem;
+    }
+
+    @include tablet {
+      font-size: 2.4rem;
+      width: 90%;
+    }
+
+    @include desktop {
+      width: 80%;
+    }
+
+    @include large {
+      font-size: 2.7rem;
+      width: 75%;
+    }
+
+  }
+
+  &__info-image-wrapper {
+    max-width: 22rem;
+    margin: 4rem 0 0;
+    box-shadow: 0 4px 14px 11px rgba(0, 0, 0, 0.6);
+
+    @include small {
+      max-width: 26rem;
+    }
+
+    @include desktop {
+      max-width: 32rem;
+    }
+
+    @include large {
+      max-width: 36rem;
+    }
+  }
+
+  &__info-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.app-recipe__recipe {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @include desktop {
+    width: 85%;
+  }
+
+  @include large {
+    width: 75%;
+  }
+
+  &-subtitle {
+    font-size: 2.4rem;
+    color: $color-title;
+    letter-spacing: 0.2rem;
+    display: inline-block;
+    margin: 0 0 1rem 0;
+    text-align: center;
+
+    @include tablet {
+      font-size: 3rem;
+    }
+
+    @include desktop {
+      font-size: 3.2rem;
+    }
+
+    @include wide {
+      font-size: 3.6rem;
+    }
+
+    &::after {
+      content: '';
+      height: 2px;
+      width: 100%;
+      background-color: $color-title;
+      display: block;
+    }
+  }
+
+  &-ingredients,
+  &-prescription {
+    margin: 1rem 2rem 2rem;
+    flex-basis: 50%;
+  }
+
+  &-step,
+  &-ingredient {
+    font-size: 1.8rem;
+    color: #fff;
+    letter-spacing: 0.15rem;
+    line-height: 1.5em;
+    padding: 0.7rem;
+    width: 70%;
+
+    @include small {
+      font-size: 2.1rem;
+    }
+
+    @include tablet {
+      width: 100%;
+    }
+
+    @include desktop {
+      font-size: 2.4rem;
+    }
+  }
+}

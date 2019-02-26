@@ -3,16 +3,18 @@ import {Link} from 'react-router-dom';
 
 function HomePage() {
 	return (
-		<div className="bg-wrapper-home">
-			<main className="app-home">
-				<section className="app-home__content">
-					<h2 className="app-home__title">Welcome</h2>
-					<p className="app-home__description">Drinkello is an alcoholic cocktails recipes finder.</p>
-					<Link to="/recipe-box/random" className="btn-home__cta">
-						Get Inspired
-					</Link>
-				</section>
-			</main>
+		<div className="bg-wrapper bg-wrapper-home">
+			<div className="container container--home">
+					<section className="app-home main-section">
+						<h2 className="app-home__title">Welcome to Drinkello</h2>
+						<p className="app-home__description">
+							React application with recipes for classic alcoholic cocktails.
+						</p>
+						<Link to="/recipe-box/random" className="btn btn-cta">
+							Get Inspired
+						</Link>
+					</section>
+			</div>
 		</div>
 	);
 };

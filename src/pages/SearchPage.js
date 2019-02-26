@@ -63,7 +63,7 @@ class SearchMainContent extends React.Component {
 
 function SearchPage(props) {
 	return (
-		<div className="bg-wrapper-home">
+		<div className="bg-wrapper bg-wrapper bg-wrapper-home">
 			<main className="app-search">
 				<SearchMainContent drinksList={props.drinksList} />
 			</main>

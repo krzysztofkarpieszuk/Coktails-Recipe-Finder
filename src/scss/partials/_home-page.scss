@@ -1,0 +1,40 @@
+.container--home {
+  min-height: calc(100vh - #{$header-height + $footer-height-mobile});
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  @include small {
+    min-height: calc(100vh - #{$header-height + $footer-height-small});
+  }
+}
+
+.app-home {
+
+  &__title {
+    font-size: 5rem;
+    font-weight: 400;
+    font-family: $font-title;
+    color: $color-title;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+
+    @include tablet {
+      font-size: 7rem;
+    }
+  }
+
+  &__description {
+    margin: 2rem 0;
+    font-size: 2.5rem;
+    letter-spacing: 0.2rem;
+    color: $color-description;
+    text-align: center;
+
+    @include tablet {
+      font-size: 3.5rem;
+    }
+  }
+}

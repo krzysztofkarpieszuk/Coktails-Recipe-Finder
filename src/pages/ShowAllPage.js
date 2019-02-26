@@ -3,7 +3,7 @@ import {SearchResults} from './SearchPage';
 
 function ShowAllPage(props) {
 	return (
-		<div className="bg-wrapper-home">
+		<div className="bg-wrapper bg-wrapper-home">
 			<main className="app-home">
 				<SearchResults drinksList={props.drinksList} />
 			</main>
