@@ -46,18 +46,18 @@ function DrinkRecipe(props) {
 
 	let step = selectedDrink.steps.map((step, index) => {
 		return <li key={`step_${index}`}
-				   className="app-recipe__recipe-step">{step}</li>;
+				   className="app-recipe__recipe-step"><span className="list-item-span">{step}</span></li>;
 	});
 
 	return (
 		<article className="app-recipe__recipe">
 			<div className="app-recipe__recipe-ingredients">
-				<h3 className="app-recipe__recipe-subtitle">Ingredients</h3>
+				<h3 className="app-recipe__recipe-subtitle subtitle-ingredients">Ingredients</h3>
 				<ul className="app-recipe__recipe-list app-recipe__recipe-list--ingredients">{ingredient}</ul>
 			</div>
 
 			<div className="app-recipe__recipe-prescription">
-				<h3 className="app-recipe__recipe-subtitle">Steps</h3>
+				<h3 className="app-recipe__recipe-subtitle subtitle-steps">Steps</h3>
 				<ol className="app-recipe__recipe-list app-recipe__recipe-list--steps">{step}</ol>
 			</div>
 		</article>
