@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-export default function AllDrinksPage(props) {
+export default function AllDrinksPageComponent(props) {
 	return (
 		<div className="bg-wrapper bg-wrapper-home">
 			<div className="container container--home">

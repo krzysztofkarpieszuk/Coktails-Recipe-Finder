@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-function HomePage() {
+function HomePageComponent() {
 	return (
 		<div className="bg-wrapper bg-wrapper-home">
 			<div className="container container--home">
@@ -19,4 +19,4 @@ function HomePage() {
 	);
 };
 
-export default HomePage;
+export default HomePageComponent;

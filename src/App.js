@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import HomePage from './pages/HomePage';
+import HomePageComponent from './components/HomePageComponent';
 import {HashRouter, Route, Switch} from 'react-router-dom';
-import RecipePage from './pages/RecipePage';
-import SearchPage from './pages/SearchPage';
-import AllDrinksPage from './pages/AllDrinksPage';
+import RecipePageComponent from './components/RecipePageComponent';
+import SearchPageComponent from './components/SearchPageComponent';
+import AllDrinksPageComponent from './components/AllDrinksPageComponent';
 import {db} from './firebase';
 
-import Header from './layout/Header';
-import Footer from './layout/Footer';
+import Header from './components/shared/Header';
+import Footer from './components/shared/Footer';
 import './scss/style.scss';
 
 class App extends Component {
@@ -54,13 +54,13 @@ class App extends Component {
 					<div>
 						<Header />
 						<Switch>
-							<Route exact path="/" render={() => <HomePage drinksList={drinksList} />} />
+							<Route exact path="/" render={() => <HomePageComponent drinksList={drinksList} />} />
 							<Route
 								path="/recipe-box/:drinkId"
-								render={(routeProps) => <RecipePage {...routeProps} drinksList={drinksList} />}
+								render={(routeProps) => <RecipePageComponent {...routeProps} drinksList={drinksList} />}
 							/>
-							<Route path="/search" render={() => <SearchPage drinksList={drinksList} />} />
-							<Route path="/show-all" render={() => <AllDrinksPage drinksList={drinksList} />} />
+							<Route path="/search" render={() => <SearchPageComponent drinksList={drinksList} />} />
+							<Route path="/show-all" render={() => <AllDrinksPageComponent drinksList={drinksList} />} />
 						</Switch>
 						<Footer />
 					</div>

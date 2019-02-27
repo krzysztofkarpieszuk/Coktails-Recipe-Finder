@@ -7,11 +7,6 @@ export default function Menu(props) {
 	return (
 		<nav className={`app-menu ${openClass}`}>
 			<ul className="app-menu__list">
-				<li className="app-menu__item" onClick={props.handleMenuItemClick}>
-					<Link to="/" className="app-menu__link">
-						Home
-					</Link>
-				</li>
 
 				<li className="app-menu__item" onClick={props.handleMenuItemClick}>
 					<Link to="/search" className="app-menu__link">

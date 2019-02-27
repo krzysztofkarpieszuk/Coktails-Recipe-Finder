@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
-import variables from '../scss/modules/_variables.scss';
+import variables from '../../scss/utilities/_variables.scss';
 import Menu from "./Menu";
 import MobileMenuTrigger from './MobileMenuTrigger';
 

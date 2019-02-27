@@ -1,5 +1,5 @@
 import React from 'react';
-import {AllDrinksWrapperComponent} from "./AllDrinksPage";
+import {AllDrinksWrapperComponent} from "./AllDrinksPageComponent";
 
 class SearchMainContent extends React.Component {
 	constructor(props) {
@@ -43,7 +43,7 @@ class SearchMainContent extends React.Component {
 	}
 }
 
-function SearchPage(props) {
+function SearchPageComponent(props) {
 	return (
 		<div className="bg-wrapper bg-wrapper bg-wrapper-home">
 			<main className="app-search">
@@ -54,4 +54,4 @@ function SearchPage(props) {
 }
 
 
-export default SearchPage;
+export default SearchPageComponent;

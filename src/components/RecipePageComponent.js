@@ -64,7 +64,7 @@ function DrinkRecipe(props) {
 	);
 };
 
-function RecipePage(props) {
+function RecipePageComponent(props) {
 	const address = props.match.params.drinkId;
 	return (
 		<div className="bg-wrapper bg-wrapper-recipe">
@@ -75,4 +75,4 @@ function RecipePage(props) {
 	);
 };
 
-export default RecipePage;
+export default RecipePageComponent;
