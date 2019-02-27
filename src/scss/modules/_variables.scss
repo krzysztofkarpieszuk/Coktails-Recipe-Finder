@@ -16,3 +16,18 @@ $font-title: 'Anton', sans-serif;
 $header-height: 70px;
 $footer-height-mobile: 115px;
 $footer-height-small: 70px;
+
+// Breakpoints
+$small-screen: 576px;
+$tablet-screen: 768px;
+$desktop-screen: 992px;
+$large-screen: 1300px;
+$wide-screen: 1550px;
+
+:export {
+  smallScreen: $small-screen;
+  tabletScreen: $tablet-screen;
+  desktopScreen: $desktop-screen;
+  largeScreen: $large-screen;
+  wideScreen: $wide-screen;
+}

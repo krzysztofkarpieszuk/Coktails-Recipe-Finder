@@ -1,44 +1,69 @@
-import React from 'react';
-import {connect} from 'react-redux'
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
-import ConnectedMenu from "./Menu";
-import ConnectedMobileMenuTrigger from './MobileMenuTrigger'
-import * as actionTypes from "../store/actions";
+import variables from '../scss/modules/_variables.scss';
+import Menu from "./Menu";
+import MobileMenuTrigger from './MobileMenuTrigger';
 
-function Header(props) {
-    const openClass = props.mobileMenuOpen ? 'toggle' : '';
+class Header extends Component {
+    constructor() {
+        super();
 
-    function handleMobileMenuOverlayClick(event) {
-        event.stopPropagation();
-        props.onMobileMenuOverlayClick();
+        this.state = {
+            isMobileMenuOpen: false
+        }
+    }
+
+    handleMenuClosing = () => {
+        this.setState({ isMobileMenuOpen: false });
     };
 
-    return (
-        <div>
-            <div className={`opened-mobile-menu-overlay ${openClass}`}
-                 onClick={(event) => handleMobileMenuOverlayClick(event)}/>
-            <header className="app-header">
-                <div className="container">
-                    <ConnectedMenu />
-                    <ConnectedMobileMenuTrigger />
-                    <Link to="/" className="app-header__logo">Drinkello</Link>
-                </div>
-            </header>
-        </div>
-
-    )
-}
-
-const mapStateToProps = state => {
-    return {
-        mobileMenuOpen: state.menu.isMobileMenuOpen
+    handleNavTriggerButton = () => {
+        this.setState({ isMobileMenuOpen: !this.state.isMobileMenuOpen});
     };
-};
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onMobileMenuOverlayClick: () => dispatch({ type: actionTypes.TOGGLE_MENU})
+    checkWindowWidth = (event) => {
+        if (!this.state.isMobileMenuOpen) {
+            return;
+        }
+
+        if (event.matches) {
+            this.setState({ isMobileMenuOpen: false });
+        }
+    };
+
+
+
+    render() {
+        const { isMobileMenuOpen } = this.state;
+        const openClass = this.state.isMobileMenuOpen ? 'toggle' : '';
+
+        return (
+            <div>
+                <header className="app-header">
+                    <div className="container">
+                        <Menu mobileMenuStatus={isMobileMenuOpen} handleMenuItemClick={this.handleMenuClosing} />
+                        <MobileMenuTrigger mobileMenuStatus={isMobileMenuOpen} toggleMobileMenu={this.handleNavTriggerButton} />
+                        <Link to="/" className="app-header__logo">Drinkello</Link>
+                    </div>
+                    <div className={`opened-mobile-menu-overlay ${openClass}`}
+                         onClick={this.handleMenuClosing}/>
+                </header>
+            </div>
+
+        )
+    }
+
+    componentDidMount() {
+        this.matchDesktop = window.matchMedia(`screen and (min-width: ${variables.desktopScreen}`);
+        this.matchDesktop.addEventListener('change', this.checkWindowWidth);
+    }
+
+    componentWillMount() {
+        if (!this.matchDesktop) {
+            return;
+        }
+        this.matchDesktop.removeEventListener(this.checkWindowWidth);
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;

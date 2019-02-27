@@ -44,7 +44,7 @@
   .opened-mobile-menu-overlay {
     display: none;
     position: fixed;
-    top: 0;
+    top: $header-height;
     left: 0;
     z-index: 1;
     background: $color-overlay;

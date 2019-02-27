@@ -1,30 +1,30 @@
 // Media queries
 @mixin wide {
-    @media screen and (min-width: 1550px) {
+    @media screen and (min-width: $wide-screen) {
         @content;
     }
 };
 
 @mixin large {
-    @media screen and (min-width: 1300px) {
+    @media screen and (min-width: $large-screen) {
         @content;
     }
 }
 
 @mixin desktop {
-    @media screen and (min-width: 992px) {
+    @media screen and (min-width: $desktop-screen) {
         @content;
     }
 };
 
 @mixin tablet {
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet-screen) {
         @content;
     }
 };
 
 @mixin small {
-    @media screen and (min-width: 576px) {
+    @media screen and (min-width: $small-screen) {
         @content;
     }
 };

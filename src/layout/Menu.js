@@ -1,53 +1,36 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import * as actionTypes from '../store/actions';
 
-export function Menu(props) {
-	const openClass = props.mobileMenu ? 'active-menu' : '';
+export default function Menu(props) {
+	const openClass = props.mobileMenuStatus ? 'active-menu' : '';
 
 	return (
 		<nav className={`app-menu ${openClass}`}>
 			<ul className="app-menu__list">
-				<li className="app-menu__item" onClick={props.onLinkSelect}>
+				<li className="app-menu__item" onClick={props.handleMenuItemClick}>
 					<Link to="/" className="app-menu__link">
 						Home
 					</Link>
 				</li>
 
-				<li className="app-menu__item" onClick={props.onLinkSelect}>
+				<li className="app-menu__item" onClick={props.handleMenuItemClick}>
 					<Link to="/search" className="app-menu__link">
 						Search
 					</Link>
 				</li>
 
-				<li className="app-menu__item" onClick={props.onLinkSelect}>
+				<li className="app-menu__item" onClick={props.handleMenuItemClick}>
 					<Link to="/recipe-box/random" className="app-menu__link">
 						Get Random Recipe
 					</Link>
 				</li>
 
-				<li className="app-menu__item" onClick={props.onLinkSelect}>
+				<li className="app-menu__item" onClick={props.handleMenuItemClick}>
 					<Link to="/show-all" className="app-menu__link">
 						Show All Drinks
 					</Link>
 				</li>
 			</ul>
 		</nav>
-
 	);
 };
-
-const mapStateToProps = state => {
-	return {
-		mobileMenu: state.menu.isMobileMenuOpen
-	}
-}
-
-const mapDispatchToProps = dispatch => {
-	return {
-		onLinkSelect: () => dispatch({ type: actionTypes.SELECT_LINK})
-	}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);

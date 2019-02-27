@@ -11,8 +11,8 @@ import Footer from './layout/Footer';
 import './scss/style.scss';
 
 class App extends Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 
 		this.state = {
 			drinksList: null
