@@ -3,7 +3,7 @@ import HomePage from './pages/HomePage';
 import {HashRouter, Route, Switch} from 'react-router-dom';
 import RecipePage from './pages/RecipePage';
 import SearchPage from './pages/SearchPage';
-import ShowAllPage from './pages/ShowAllPage';
+import AllDrinksPage from './pages/AllDrinksPage';
 import {db} from './firebase';
 
 import Header from './layout/Header';
@@ -60,7 +60,7 @@ class App extends Component {
 								render={(routeProps) => <RecipePage {...routeProps} drinksList={drinksList} />}
 							/>
 							<Route path="/search" render={() => <SearchPage drinksList={drinksList} />} />
-							<Route path="/show-all" render={() => <ShowAllPage drinksList={drinksList} />} />
+							<Route path="/show-all" render={() => <AllDrinksPage drinksList={drinksList} />} />
 						</Switch>
 						<Footer />
 					</div>

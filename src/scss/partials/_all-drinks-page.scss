@@ -1,0 +1,80 @@
+.all-drinks {
+  margin: 2rem;
+
+  &__results {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    @include small {
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+  }
+}
+
+.drink-box {
+  background-size: cover;
+  background-position: center center;
+  margin: 2rem;
+  height: 20rem;
+  width: 20rem;
+  box-shadow: 0 0 14px 7px rgba(0, 0, 0, 0.6);
+
+  @include desktop {
+    width: 25rem;
+    height: 25rem;
+  }
+
+  @include wide {
+    width: 30rem;
+    height: 30rem;
+  }
+
+  &__link {
+    background: transparent;
+    opacity: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    text-decoration: none;
+    outline: none;
+
+    @include desktop {
+      background: rgba(0, 0, 0, 0.7);;
+      opacity: 0;
+      align-items: center;
+      width: 100%;
+      transition: opacity 0.4s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__name {
+    color: $color-description;
+    font-size: 2rem;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    text-align: center;
+
+    @include desktop {
+      width: 75%;
+      font-size: 2.5rem;
+      padding: 1rem;
+      border: 4px solid $color-description;
+      background: transparent;
+
+      @include wide {
+        font-size: 3rem;
+      }
+    }
+  }
+}

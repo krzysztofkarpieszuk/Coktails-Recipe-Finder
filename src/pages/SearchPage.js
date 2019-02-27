@@ -1,23 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-export function SearchResults(props) {
-
-	const drink = props.drinksList.map(drink => {
-		const url= `url(${drink.imgURL})`;
-		const address = `/recipe-box/${drink.id}`;
-		return (
-			<div className="result-box" key={drink.id} style={{ backgroundImage: url }}>
-				<Link to={address} className="result-link">
-					<div className="result-info">{drink.name}</div>
-				</Link>
-			</div>
-		);
-	});
-
-	return <div className="app-search__results">{drink}</div>;
-}
-
+import {AllDrinksWrapperComponent} from "./AllDrinksPage";
 
 class SearchMainContent extends React.Component {
 	constructor(props) {
@@ -54,7 +36,7 @@ class SearchMainContent extends React.Component {
 						value={searchValue}
 					/>
 
-					{searchValue !== "" && <SearchResults drinksList={foundItems}/>}
+					{searchValue !== "" && <AllDrinksWrapperComponent drinksList={foundItems}/>}
 				</section>
 			);
 
