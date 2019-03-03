@@ -1,19 +1,28 @@
 .mobile-menu-trigger {
   margin: 0 -1rem;
-  padding: 2rem;
+  padding: 1rem 2rem 1rem 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   @include desktop {
     display: none;
   }
 
   &__wrapper {
-    width: 2.7rem;
-    height: 2.7rem;
+    width: 2.4rem;
+    height: 2.4rem;
     transition: transform 330ms ease-out;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @include small {
+      width: 2.7rem;
+      height: 2.7rem;
+    }
 
     &.open {
       transform: rotate(-45deg);

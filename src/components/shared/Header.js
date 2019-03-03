@@ -3,10 +3,12 @@ import {Link} from 'react-router-dom'
 import variables from '../../scss/utilities/_variables.scss';
 import Menu from "./Menu";
 import MobileMenuTrigger from './MobileMenuTrigger';
+import {connect} from 'react-redux';
+import * as actionTpes from '../../store/actions/finder';
 
 class Header extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             isMobileMenuOpen: false
@@ -15,10 +17,12 @@ class Header extends Component {
 
     handleMenuClosing = () => {
         this.setState({ isMobileMenuOpen: false });
+        this.props.onCloseFinderBtnClick();
     };
 
     handleNavTriggerButton = () => {
         this.setState({ isMobileMenuOpen: !this.state.isMobileMenuOpen});
+        this.props.onCloseFinderBtnClick();
     };
 
     checkWindowWidth = (event) => {
@@ -31,8 +35,6 @@ class Header extends Component {
         }
     };
 
-
-
     render() {
         const { isMobileMenuOpen } = this.state;
         const openClass = this.state.isMobileMenuOpen ? 'toggle' : '';
@@ -41,9 +43,18 @@ class Header extends Component {
             <div>
                 <header className="app-header">
                     <div className="container">
-                        <Menu mobileMenuStatus={isMobileMenuOpen} handleMenuItemClick={this.handleMenuClosing} />
-                        <MobileMenuTrigger mobileMenuStatus={isMobileMenuOpen} toggleMobileMenu={this.handleNavTriggerButton} />
-                        <Link to="/" className="app-header__logo">Drinkello</Link>
+                        <Link to="/" className="app-header__logo"
+                              onClick={this.props.onCloseFinderBtnClick}>Drinkello</Link>
+                        <div className="app-header__items">
+                            <button className="finder-trigger"
+                                    onClick={this.props.onFinderButtonClick}>
+                                <span className="finder-trigger__icon">
+                                    <i className="fas fa-search"></i>
+                                </span>
+                            </button>
+                            <Menu mobileMenuStatus={isMobileMenuOpen} handleMenuItemClick={this.handleMenuClosing} />
+                            <MobileMenuTrigger mobileMenuStatus={isMobileMenuOpen} toggleMobileMenu={this.handleNavTriggerButton} />
+                        </div>
                     </div>
                     <div className={`opened-mobile-menu-overlay ${openClass}`}
                          onClick={this.handleMenuClosing}/>
@@ -58,7 +69,7 @@ class Header extends Component {
         this.matchDesktop.addEventListener('change', this.checkWindowWidth);
     }
 
-    componentWillMount() {
+    componentWillUnmount() {
         if (!this.matchDesktop) {
             return;
         }
@@ -66,4 +77,17 @@ class Header extends Component {
     }
 }
 
-export default Header;
+const mapStateToProps = state => {
+    return {
+        isFinderOpen: state.finder.isFinderOpen
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onFinderButtonClick: () => dispatch({ type: actionTpes.OPEN_FINDER }),
+        onCloseFinderBtnClick: () => dispatch({type: actionTpes.CLOSE_FINDER})
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

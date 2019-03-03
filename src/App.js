@@ -9,6 +9,7 @@ import {db} from './firebase';
 import Header from './components/shared/Header';
 import Footer from './components/shared/Footer';
 import './scss/style.scss';
+import FinderComponent from "./components/shared/Finder/FinderComponent";
 
 class App extends Component {
 	constructor() {
@@ -63,6 +64,7 @@ class App extends Component {
 							<Route path="/show-all" render={() => <AllDrinksPageComponent drinksList={drinksList} />} />
 						</Switch>
 						<Footer />
+						<FinderComponent drinksList={drinksList}/>
 					</div>
 				</HashRouter>
 			);

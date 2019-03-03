@@ -1,0 +1,4 @@
+export const OPEN_FINDER = 'OPEN_FINDER';
+export const CLOSE_FINDER = 'CLOSE_FINDER';
+export const SELECT_FOUND_ITEM = 'SELECT_FOUND_ITEM';
+export const TYPE_SEARCH_VALUE = 'TYPE_SEARCH_VALUE';
